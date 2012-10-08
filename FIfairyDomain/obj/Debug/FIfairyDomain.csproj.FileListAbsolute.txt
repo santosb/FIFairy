@@ -1,0 +1,10 @@
+C:\Samples\FIfairy\FIfairyDomain\bin\Debug\FIfairyDomain.dll
+C:\Samples\FIfairy\FIfairyDomain\bin\Debug\FIfairyDomain.pdb
+C:\Samples\FIfairy\FIfairyDomain\obj\Debug\ResolveAssemblyReference.cache
+C:\Samples\FIfairy\FIfairyDomain\obj\Debug\FIfairyDomain.dll
+C:\Samples\FIfairy\FIfairyDomain\obj\Debug\FIfairyDomain.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyDomain\bin\Debug\FIfairyDomain.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyDomain\bin\Debug\FIfairyDomain.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyDomain\obj\Debug\ResolveAssemblyReference.cache
+C:\FI fairy\FIfairy\FIfairy\FIfairyDomain\obj\Debug\FIfairyDomain.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyDomain\obj\Debug\FIfairyDomain.pdb

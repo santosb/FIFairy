@@ -1,0 +1,6 @@
+<Modules>
+  <Module PersistentId="5261A12B-DD35-4657-A7E1-AF6261D3C8E9" ModuleId="FIfairy" />
+  <Module PersistentId="8CE05436-D51A-400F-A0E1-B4E2729345D0" ModuleId="FIfairyDomain" />
+  <Module PersistentId="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A" ModuleId="FIfairyTests" />
+  <Module PersistentId="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.Web.Mvc" />
+</Modules>

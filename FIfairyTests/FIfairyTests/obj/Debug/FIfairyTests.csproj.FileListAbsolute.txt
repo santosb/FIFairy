@@ -1,0 +1,38 @@
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyTests.dll
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyTests.pdb
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairy.dll
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\Moq.dll
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\nunit.framework.dll
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\nunit.mocks.dll
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\pnunit.framework.dll
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairy.pdb
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\Moq.pdb
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\Moq.xml
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\nunit.framework.xml
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\ResolveAssemblyReference.cache
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\FIfairyTests.dll
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\FIfairyTests.pdb
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyDomain.dll
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyDomain.pdb
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\StructureMap.dll
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\StructureMap.pdb
+C:\Samples\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\StructureMap.xml
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyTests.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyTests.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairy.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyDomain.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\Moq.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\nunit.framework.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\nunit.mocks.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\pnunit.framework.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\StructureMap.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyDomain.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairy.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\Moq.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\Moq.xml
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\nunit.framework.xml
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\StructureMap.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\StructureMap.xml
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\ResolveAssemblyReference.cache
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\FIfairyTests.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\FIfairyTests.pdb

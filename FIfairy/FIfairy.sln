@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIfairy", "FIfairy.csproj", "{5261A12B-DD35-4657-A7E1-AF6261D3C8E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIfairyTests", "..\FIfairyTests\FIfairyTests\FIfairyTests.csproj", "{FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIfairyDomain", "..\FIfairyDomain\FIfairyDomain.csproj", "{8CE05436-D51A-400F-A0E1-B4E2729345D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5261A12B-DD35-4657-A7E1-AF6261D3C8E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5261A12B-DD35-4657-A7E1-AF6261D3C8E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5261A12B-DD35-4657-A7E1-AF6261D3C8E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5261A12B-DD35-4657-A7E1-AF6261D3C8E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CE05436-D51A-400F-A0E1-B4E2729345D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CE05436-D51A-400F-A0E1-B4E2729345D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CE05436-D51A-400F-A0E1-B4E2729345D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CE05436-D51A-400F-A0E1-B4E2729345D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

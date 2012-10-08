@@ -1,0 +1,20 @@
+C:\Samples\FIfairy\FIfairy\bin\FIfairy.dll
+C:\Samples\FIfairy\FIfairy\bin\FIfairy.pdb
+C:\Samples\FIfairy\FIfairy\obj\Debug\ResolveAssemblyReference.cache
+C:\Samples\FIfairy\FIfairy\obj\Debug\FIfairy.dll
+C:\Samples\FIfairy\FIfairy\obj\Debug\FIfairy.pdb
+C:\Samples\FIfairy\FIfairy\bin\FIfairyDomain.dll
+C:\Samples\FIfairy\FIfairy\bin\FIfairyDomain.pdb
+C:\Samples\FIfairy\FIfairy\bin\StructureMap.dll
+C:\Samples\FIfairy\FIfairy\bin\StructureMap.pdb
+C:\Samples\FIfairy\FIfairy\bin\StructureMap.xml
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairy.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairy.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyDomain.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\StructureMap.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyDomain.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\StructureMap.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\StructureMap.xml
+C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\ResolveAssemblyReference.cache
+C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\FIfairy.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\FIfairy.pdb

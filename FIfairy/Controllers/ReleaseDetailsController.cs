@@ -16,9 +16,9 @@ namespace FIfairy.Controllers
             _releaseRepository = releaseRepository;
         }
 
-        public ViewResult Index(string id)
+        public ViewResult Index(string releaseNumber)
         {
-            return View("ReleaseDetails", _releaseRepository.GetReleaseDetails(id));
+            return View("ReleaseDetails", _releaseRepository.GetReleaseDetails(releaseNumber));
         }
 
     }

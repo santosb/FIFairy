@@ -34,7 +34,7 @@ namespace FIfairyTests
             var model = (IEnumerable<ReleaseModel>)result.ViewData.Model;
 
             //then
-            Assert.That(result.ViewName, Is.EqualTo("ReleaseView"));
+            Assert.That(result.ViewName, Is.EqualTo("Release"));
             Assert.That(model, Is.EqualTo(expectedReleaseModel));
             Assert.That(model.First().TeamName, Is.EqualTo("Enzo"));
         }
@@ -60,7 +60,7 @@ namespace FIfairyTests
 
             var model = (IEnumerable<ReleaseModel>)result.ViewData.Model;
 
-            Assert.That(result.ViewName, Is.EqualTo("ReleaseView"));
+            Assert.That(result.ViewName, Is.EqualTo("Release"));
             Assert.That(model, Is.EqualTo(expectedReleaseModel));
             Assert.That(model.First().TeamName, Is.EqualTo("Enzo"));
         }

@@ -38,3 +38,9 @@ C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\FIfairyTests.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\FIfairyTests.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyData.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyData.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FluentNHibernate.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\NHibernate.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\Iesi.Collections.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FluentNHibernate.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\NHibernate.xml
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\Iesi.Collections.xml

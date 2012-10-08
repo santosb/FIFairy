@@ -1,28 +1,39 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using FIfairyDomain;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Criterion;
+using NHibernate.Tool.hbm2ddl;
 
 namespace FIfairyData
 {
     public class ReleaseRepository : IReleaseRepository
     {
+        private const string DbFile = "FIFairy.db";
+
         #region IReleaseRepository Members
 
-        private List<ReleaseModel> _releases = new List<ReleaseModel>
-                       {
-                           new ReleaseModel("Enzo", "REL1216",  new DateTime(2011,10,20)),
-                           new ReleaseModel("Enzo", "REL54164", new DateTime(2011,11,20)),
-                           new ReleaseModel("Enzo", "REL123", new DateTime(2011,03,20)),
-                           new ReleaseModel("Enzo", "REL124", new DateTime(2011,02,27)),
-                           new ReleaseModel("Enzo", "REL125", new DateTime(2011,09,26)),
-                           new ReleaseModel("Colombo", "REL1000", new DateTime(2011,12,25)),
-                           new ReleaseModel("Colombo", "REL11122", new DateTime(2011,11,04))
-                       };
-
         public IEnumerable<ReleaseModel> GetReleases()
-        {            
-            return _releases;
+        {
+            var releaseModels = new List<ReleaseModel>();
+            ISessionFactory sessionRepository = CreateSessionFactory();
+            using (ISession session = sessionRepository.OpenSession())
+            {
+                // retreive all stores and display them
+                using (session.BeginTransaction())
+                {
+                    IList<Release> releases = session.CreateCriteria<Release>().List<Release>();
+
+                    releaseModels.AddRange(releases.Select(
+                        release => new ReleaseModel(release.TeamName, release.ReleaseNumber, release.Date)));
+                }
+            }
+            return releaseModels;
         }
 
         public IEnumerable<ReleaseModel> GetReleases(DateTime dateTo)
@@ -32,24 +43,84 @@ namespace FIfairyData
 
         public ReleaseDetailsModel GetReleaseDetails(string releaseNumber)
         {
-            return new  ReleaseDetailsModel
-                                                  {
-                                                      ReleaseNumber = releaseNumber,
-                                                      ReleaseFiInstructions = "FI as Normal.",
-                                                      TeamName = "ENZO",
-                                                      PrePatEmail = "pre pat meetings are cool...", 
-                                                      ServiceNowTicketLink="www.google.co.uk"
-                                                  };
+            ISessionFactory sessionRepository = CreateSessionFactory();
+            using (ISession session = sessionRepository.OpenSession())
+            {
+                // retreive all stores and display them
+                using (session.BeginTransaction())
+                {
+                    var releaseDetails =
+                        session.CreateCriteria<ReleaseDetails>()
+                            .Add(Restrictions.Eq("ReleaseNumber", releaseNumber))
+                            .UniqueResult<ReleaseDetails>();
 
+                    return new ReleaseDetailsModel
+                               {
+                                   TeamName = releaseDetails.TeamName,
+                                   ReleaseNumber = releaseDetails.ReleaseNumber,
+                                   PrePatEmail = releaseDetails.PrePatEmail,
+                                   ReleaseFiInstructions = releaseDetails.ReleaseFiInstructions,
+                                   ServiceNowTicketLink = releaseDetails.ServiceNowTicketLink
+                               };
+                }
+            }
         }
 
         public void SaveReleaseDetails(ReleaseDetailsModel releaseDetailsModel)
         {
-            ReleaseModel _release = new ReleaseModel(releaseDetailsModel.TeamName, releaseDetailsModel.ReleaseNumber,
-                                                     DateTime.Now);
-            _releases.Add(_release);
+            var release = new Release
+                              {
+                                  Date = DateTime.Today,
+                                  ReleaseNumber = releaseDetailsModel.ReleaseNumber,
+                                  TeamName = releaseDetailsModel.TeamName
+                              };
+            var releaseDetails = new ReleaseDetails
+                                     {
+                                         ReleaseNumber = releaseDetailsModel.ReleaseNumber,
+                                         TeamName = releaseDetailsModel.TeamName,
+                                         PrePatEmail = releaseDetailsModel.PrePatEmail,
+                                         ServiceNowTicketLink = releaseDetailsModel.ServiceNowTicketLink,
+                                         ReleaseFiInstructions = releaseDetailsModel.ReleaseFiInstructions
+                                     };
+
+            // create our NHibernate session factory            
+            ISessionFactory sessionRepository = CreateSessionFactory();
+            using (ISession session = sessionRepository.OpenSession())
+            {
+                // populate the database
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(release);
+                    session.SaveOrUpdate(releaseDetails);
+                    transaction.Commit();
+                }
+            }
         }
 
         #endregion
+
+        private static ISessionFactory CreateSessionFactory()
+        {
+            return Fluently.Configure()
+                .Database(
+                    SQLiteConfiguration.Standard.UsingFile(DbFile)
+                )
+                .Mappings(m =>
+                          m.FluentMappings.AddFromAssemblyOf<ReleaseRepository>())
+                .ExposeConfiguration(BuildSchema)
+                .BuildSessionFactory();
+        }
+
+        private static void BuildSchema(Configuration config)
+        {
+            // delete the existing db on each run
+            if (File.Exists(DbFile))
+                return;
+
+            // this NHibernate tool takes a configuration (with mapping info in)
+            // and exports a database schema from it
+            new SchemaExport(config)
+                .Create(false, true);
+        }
     }
 }

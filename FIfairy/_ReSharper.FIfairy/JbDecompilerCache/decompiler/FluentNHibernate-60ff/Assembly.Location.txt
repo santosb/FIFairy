@@ -1,0 +1,1 @@
+﻿C:\FI fairy\FIfairy\FIfairy\FIfairy\packages\FluentNHibernate.1.3.0.717\lib\FluentNHibernate.dll

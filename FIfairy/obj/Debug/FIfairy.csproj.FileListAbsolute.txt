@@ -20,3 +20,11 @@ C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\FIfairy.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\FIfairy.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyData.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyData.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FluentNHibernate.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\Iesi.Collections.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\NHibernate.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FluentNHibernate.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\Iesi.Collections.xml
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\NHibernate.xml
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\System.Data.SQLite.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\System.Data.SQLite.Linq.dll

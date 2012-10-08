@@ -8,6 +8,6 @@ namespace FIfairyDomain
         IEnumerable<Release> GetReleases();
         IEnumerable<Release> GetReleases(DateTime dateTo);
         Release GetReleaseDetails(string releaseNumber);
-        void SaveReleaseDetails(Release expectedRelease);
+        void SaveReleaseDetails(Release release);
     }
 }

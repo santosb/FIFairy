@@ -1,11 +1,11 @@
-C:\FI fairy\FIfairy\FIfairy\FIfairyData\obj\Debug\ResolveAssemblyReference.cache
 C:\FI fairy\FIfairy\FIfairy\FIfairyData\bin\Debug\FIfairyData.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairyData\bin\Debug\FIfairyData.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairyData\bin\Debug\FIfairyDomain.dll
-C:\FI fairy\FIfairy\FIfairy\FIfairyData\bin\Debug\FIfairyDomain.pdb
-C:\FI fairy\FIfairy\FIfairy\FIfairyData\obj\Debug\FIfairyData.dll
-C:\FI fairy\FIfairy\FIfairy\FIfairyData\obj\Debug\FIfairyData.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairyData\bin\Debug\FluentNHibernate.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairyData\bin\Debug\NHibernate.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyData\bin\Debug\FIfairyDomain.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairyData\bin\Debug\FluentNHibernate.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairyData\bin\Debug\NHibernate.xml
+C:\FI fairy\FIfairy\FIfairy\FIfairyData\obj\Debug\ResolveAssemblyReference.cache
+C:\FI fairy\FIfairy\FIfairy\FIfairyData\obj\Debug\FIfairyData.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyData\obj\Debug\FIfairyData.pdb

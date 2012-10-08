@@ -55,12 +55,10 @@ namespace FIfairy.Controllers
         {
             if (HasPrePatFile(prepatfile))
             {
-                string savedFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                                                    Path.GetFileName(prepatfile.FileName));
+                string savedFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Path.GetFileName(prepatfile.FileName));
                 prepatfile.SaveAs(savedFileName);
 
-                release.PrePatEmailFile = new ViewDataUploadFilesResult
-                                              {Name = savedFileName, Length = prepatfile.ContentLength};
+                release.PrePatEmailFileInfo = new PrePatEmailFileInfo {Name = savedFileName, Length = prepatfile.ContentLength};
             }
         }
 

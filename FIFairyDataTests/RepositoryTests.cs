@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Web;
 using FIfairyData;
 using FIfairyDomain;
+using Moq;
 using NUnit.Framework;
 
 namespace FIFairyDataTests
@@ -10,8 +13,8 @@ namespace FIFairyDataTests
     [TestFixture]
     internal class RepositoryTests
     {
-
-        //rename REleasedetailsmodel to only release. !!!!!!!!!!!!!!
+        private const string TestPrePatEmail = @"Enzo Pre-PAT release 19122011 ref REL11125.0.00.msg";
+        //create tests in releaserep (data) to get and create the file. int test
         #region Setup/Teardown
 
         [SetUp]
@@ -29,22 +32,8 @@ namespace FIFairyDataTests
             var releaseRepository = new ReleaseRepository();
             var expectedReleaseDetailsModels = new List<Release>
                                                    {
-                                                       new Release
-                                                           {
-                                                               ReleaseNumber = "REL01",
-                                                               TeamName = "enzo",
-                                                               PrePatEmail = "some email",
-                                                               ServiceNowTicketLink = "ticket",
-                                                               ReleaseFiInstructions = "instructions"
-                                                           },
-                                                       new Release
-                                                           {
-                                                               ReleaseNumber = "REL02",
-                                                               TeamName = "enzo",
-                                                               PrePatEmail = "some email",
-                                                               ServiceNowTicketLink = "ticket",
-                                                               ReleaseFiInstructions = "instructions"
-                                                           }
+                                                        new ReleaseBuilder().WithReleaseNumber("REL01").Build(),
+                                                        new ReleaseBuilder().WithReleaseNumber("REL02").Build()
                                                    };
 
             //when           
@@ -53,9 +42,8 @@ namespace FIFairyDataTests
                 releaseRepository.SaveReleaseDetails(expectedReleaseDetailsModel);
             }
 
+            // then
             IEnumerable<Release> releaseDetailsModels = releaseRepository.GetReleases();
-
-            //then
             Assert.That(releaseDetailsModels, Is.EqualTo(expectedReleaseDetailsModels));
         }
 
@@ -64,20 +52,57 @@ namespace FIFairyDataTests
         {
             //given
             var releaseRepository = new ReleaseRepository();
-            var expectedReleaseDetailsModel = new Release
-                                                  {
-                                                      ReleaseNumber = "REL01",
-                                                      TeamName = "enzo",
-                                                      PrePatEmail = "some email",
-                                                      ServiceNowTicketLink = "ticket",
-                                                      ReleaseFiInstructions = "instructions"
-                                                  };
+
+            var expectedReleaseDetailsModel = new ReleaseBuilder().Build();
             //when
             releaseRepository.SaveReleaseDetails(expectedReleaseDetailsModel);
 
             //then
             Release release = releaseRepository.GetReleaseDetails("REL01");
-            Assert.That(release, Is.EqualTo(expectedReleaseDetailsModel));
+            Assert.That(release, Is.EqualTo(expectedReleaseDetailsModel));            
+        }
+
+        [Test]
+        public void ShouldGetPrePatEmailFile()
+        {
+            //given
+            var releaseRepository = new ReleaseRepository();
+            Stream expectedFile = File.OpenRead(TestPrePatEmail);            
+
+            //when            
+            using(FileStream file = releaseRepository.GetPrePatEmailFile(TestPrePatEmail))
+            {
+                //then
+                Assert.That(file, Is.EqualTo(expectedFile));
+                Assert.That(file.Name, Is.EqualTo(ToAbsolutePath(TestPrePatEmail)));
+            }
+        }
+
+        [Test]
+        public void ShouldSavePrePatEmailFile()
+        {
+            //given
+            Stream expectedStream = File.OpenRead(TestPrePatEmail);
+            var releaseRepository = new ReleaseRepository();
+            string filename = TestPrePatEmail + DateTime.Now.ToString("-yy-MM-dd-HH-mm-ss") + ".msg";
+
+            //when
+            releaseRepository.SavePrePatEmailFile(filename, expectedStream);
+
+            string actualFilename = ToAbsolutePath(filename);
+            using (FileStream file = File.OpenRead(actualFilename))
+            {
+                Assert.That(file, Is.EqualTo(expectedStream));
+                Assert.That(file.Name, Is.EqualTo(actualFilename));
+            }
+
+            //TearDown
+            File.Delete(actualFilename);
+        }
+
+        private string ToAbsolutePath(string filename)
+        {
+            return AppDomain.CurrentDomain.BaseDirectory + @"\" + filename;
         }
     }
 }

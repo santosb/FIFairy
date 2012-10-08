@@ -7,14 +7,14 @@ namespace FIfairyDomain
     {
         public Release()
         {
-            
+            ReleaseDate = DateTime.Today;
         }
 
         public Release(string teamName, string releaseNumber, DateTime releaseDate)
         {
             TeamName = teamName;
             ReleaseNumber = releaseNumber;
-            ReleaseDate = releaseDate;
+            ReleaseDate = releaseDate;            
         }
 
         public virtual DateTime ReleaseDate { get; set; }
@@ -25,14 +25,14 @@ namespace FIfairyDomain
         public virtual string PrePatEmail { get; set; }
         public virtual string ServiceNowTicketLink { get; set; }
 
-        public virtual ViewDataUploadFilesResult PrePatEmailFile { get; set; }
+        public virtual PrePatEmailFileInfo PrePatEmailFileInfo { get; set; }
 
-
+        #region Equality 
         public virtual bool Equals(Release other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
-            return Equals(other.ReleaseNumber, ReleaseNumber) && Equals(other.ReleaseFiInstructions, ReleaseFiInstructions) && Equals(other.TeamName, TeamName) && Equals(other.PrePatEmail, PrePatEmail) && Equals(other.ServiceNowTicketLink, ServiceNowTicketLink);
+            return other.ReleaseDate.Equals(ReleaseDate) && Equals(other.ReleaseNumber, ReleaseNumber) && Equals(other.ReleaseFiInstructions, ReleaseFiInstructions) && Equals(other.TeamName, TeamName) && Equals(other.PrePatEmail, PrePatEmail) && Equals(other.ServiceNowTicketLink, ServiceNowTicketLink) && Equals(other.PrePatEmailFileInfo, PrePatEmailFileInfo);
         }
 
         public override bool Equals(object obj)
@@ -47,20 +47,48 @@ namespace FIfairyDomain
         {
             unchecked
             {
-                int result = (ReleaseNumber != null ? ReleaseNumber.GetHashCode() : 0);
+                int result = ReleaseDate.GetHashCode();
+                result = (result*397) ^ (ReleaseNumber != null ? ReleaseNumber.GetHashCode() : 0);
                 result = (result*397) ^ (ReleaseFiInstructions != null ? ReleaseFiInstructions.GetHashCode() : 0);
                 result = (result*397) ^ (TeamName != null ? TeamName.GetHashCode() : 0);
                 result = (result*397) ^ (PrePatEmail != null ? PrePatEmail.GetHashCode() : 0);
                 result = (result*397) ^ (ServiceNowTicketLink != null ? ServiceNowTicketLink.GetHashCode() : 0);
+                result = (result*397) ^ (PrePatEmailFileInfo != null ? PrePatEmailFileInfo.GetHashCode() : 0);
                 return result;
             }
         }
+        #endregion
     }
 
-    public class ViewDataUploadFilesResult
+    public class PrePatEmailFileInfo
     {
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
-        public int Length { get; set; }
+        public virtual int Length { get; set; }
+
+        #region equality 
+        public bool Equals(PrePatEmailFileInfo other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Equals(other.Name, Name) && other.Length == Length;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != typeof (PrePatEmailFileInfo)) return false;
+            return Equals((PrePatEmailFileInfo) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((Name != null ? Name.GetHashCode() : 0)*397) ^ Length;
+            }
+        }
+        #endregion
     }
 }

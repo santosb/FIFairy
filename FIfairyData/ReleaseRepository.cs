@@ -44,26 +44,13 @@ namespace FIfairyData
                 // retreive all stores and display them
                 using (session.BeginTransaction())
                 {
-                    var releaseDetails =
-                        session.CreateCriteria<Release>()
-                            .Add(Restrictions.Eq("ReleaseNumber", releaseNumber))
-                            .UniqueResult<Release>();
-
-                    return new Release
-                               {
-                                   TeamName = releaseDetails.TeamName,
-                                   ReleaseNumber = releaseDetails.ReleaseNumber,
-                                   PrePatEmail = releaseDetails.PrePatEmail,
-                                   ReleaseFiInstructions = releaseDetails.ReleaseFiInstructions,
-                                   ServiceNowTicketLink = releaseDetails.ServiceNowTicketLink
-                               };
+                    return session.Get<Release>(releaseNumber);
                 }
             }
         }
 
         public void SaveReleaseDetails(Release release)
-        {
-            release.ReleaseDate = DateTime.Today;
+        {           
             // create our NHibernate session factory            
             ISessionFactory sessionRepository = CreateSessionFactory();
             using (ISession session = sessionRepository.OpenSession())
@@ -101,6 +88,23 @@ namespace FIfairyData
             // and exports a database schema from it
             new SchemaExport(config)
                 .Create(false, true);
+        }
+
+        public void SavePrePatEmailFile(string filename, Stream inputStream)
+        {
+            string savedFileName = AppDomain.CurrentDomain.BaseDirectory + @"\" + filename;
+
+            var memoryStream = new MemoryStream();
+            inputStream.CopyTo(memoryStream);            
+            File.WriteAllBytes(savedFileName, memoryStream.ToArray());            
+        }
+
+
+        //GetPrePatEmailFile (filename) -> send file Name instead  of release number
+        public FileStream GetPrePatEmailFile(string filename)
+        {        
+            string savedFileName = AppDomain.CurrentDomain.BaseDirectory + @"\"  + filename; 
+            return  File.OpenRead(savedFileName);
         }
     }
 }

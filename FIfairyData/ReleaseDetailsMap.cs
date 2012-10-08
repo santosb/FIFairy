@@ -3,7 +3,7 @@ using FluentNHibernate.Mapping;
 
 namespace FIfairyData
 {
-    class ReleaseDetailsMap : ClassMap<ReleaseDetailsModel>
+    class ReleaseDetailsMap : ClassMap<Release>
     {
         public ReleaseDetailsMap()
         {            
@@ -11,7 +11,8 @@ namespace FIfairyData
             Id(x => x.ReleaseNumber).GeneratedBy.Assigned();
             Map(x => x.PrePatEmail);
             Map(x => x.ReleaseFiInstructions);
-            Map(x => x.ServiceNowTicketLink);            
+            Map(x => x.ServiceNowTicketLink);
+            Map(x => x.ReleaseDate);    
         }
         
     }

@@ -50,7 +50,7 @@ namespace FIFairyDataTests
 
             using (ISession session = sessionFactory.OpenSession())
             {
-                new PersistenceSpecification<ReleaseDetailsModel>(session)
+                new PersistenceSpecification<Release>(session)
                     .CheckProperty(c => c.TeamName, "ENZO")
                     .CheckProperty(c => c.ReleaseNumber, "REL00001")                    
                     .CheckProperty(c => c.ReleaseFiInstructions, "some FI instructions")

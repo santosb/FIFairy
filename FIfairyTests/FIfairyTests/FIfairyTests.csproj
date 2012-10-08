@@ -58,8 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateReleaseTests.cs" />
-    <Compile Include="ReleaseDetailsTests.cs" />
-    <Compile Include="ReleaseTests.cs" />
+    <Compile Include="ReleaseControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteTests.cs" />
   </ItemGroup>

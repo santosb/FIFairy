@@ -27,9 +27,9 @@ namespace FIFairyDataTests
         {
             //given
             var releaseRepository = new ReleaseRepository();
-            var expectedReleaseDetailsModels = new List<ReleaseDetailsModel>
+            var expectedReleaseDetailsModels = new List<Release>
                                                    {
-                                                       new ReleaseDetailsModel
+                                                       new Release
                                                            {
                                                                ReleaseNumber = "REL01",
                                                                TeamName = "enzo",
@@ -37,7 +37,7 @@ namespace FIFairyDataTests
                                                                ServiceNowTicketLink = "ticket",
                                                                ReleaseFiInstructions = "instructions"
                                                            },
-                                                       new ReleaseDetailsModel
+                                                       new Release
                                                            {
                                                                ReleaseNumber = "REL02",
                                                                TeamName = "enzo",
@@ -48,12 +48,12 @@ namespace FIFairyDataTests
                                                    };
 
             //when           
-            foreach (ReleaseDetailsModel expectedReleaseDetailsModel in expectedReleaseDetailsModels)
+            foreach (Release expectedReleaseDetailsModel in expectedReleaseDetailsModels)
             {
                 releaseRepository.SaveReleaseDetails(expectedReleaseDetailsModel);
             }
 
-            IEnumerable<ReleaseDetailsModel> releaseDetailsModels = releaseRepository.GetReleases();
+            IEnumerable<Release> releaseDetailsModels = releaseRepository.GetReleases();
 
             //then
             Assert.That(releaseDetailsModels, Is.EqualTo(expectedReleaseDetailsModels));
@@ -64,7 +64,7 @@ namespace FIFairyDataTests
         {
             //given
             var releaseRepository = new ReleaseRepository();
-            var expectedReleaseDetailsModel = new ReleaseDetailsModel
+            var expectedReleaseDetailsModel = new Release
                                                   {
                                                       ReleaseNumber = "REL01",
                                                       TeamName = "enzo",
@@ -76,8 +76,8 @@ namespace FIFairyDataTests
             releaseRepository.SaveReleaseDetails(expectedReleaseDetailsModel);
 
             //then
-            ReleaseDetailsModel releaseDetailsModel = releaseRepository.GetReleaseDetails("REL01");
-            Assert.That(releaseDetailsModel, Is.EqualTo(expectedReleaseDetailsModel));
+            Release release = releaseRepository.GetReleaseDetails("REL01");
+            Assert.That(release, Is.EqualTo(expectedReleaseDetailsModel));
         }
     }
 }

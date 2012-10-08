@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using System.Web.Mvc;
 using FIfairyDomain;
 
@@ -29,21 +32,41 @@ namespace FIfairy.Controllers
         public ViewResult Create()
         {
             return View("CreateRelease");
-        }
-        
+        }       
+
         [HttpPost]
-        public ActionResult Create(ReleaseDetailsModel releaseDetailsModel)
+        public ActionResult Create(Release release, HttpPostedFileBase prepatfile)
         {
             try
             {
-                _releaseRepository.SaveReleaseDetails(releaseDetailsModel);
-                              
+                SavePrePatFile(release, prepatfile);
+
+                _releaseRepository.SaveReleaseDetails(release);
+
                 return RedirectToAction("Index", "Release");
             }
             catch
             {
                 return View("CreateRelease");
             }
+        }
+
+        private static void SavePrePatFile(Release release, HttpPostedFileBase prepatfile)
+        {
+            if (HasPrePatFile(prepatfile))
+            {
+                string savedFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                                                    Path.GetFileName(prepatfile.FileName));
+                prepatfile.SaveAs(savedFileName);
+
+                release.PrePatEmailFile = new ViewDataUploadFilesResult
+                                              {Name = savedFileName, Length = prepatfile.ContentLength};
+            }
+        }
+
+        private static bool HasPrePatFile(HttpPostedFileBase prepatfile)
+        {
+            return prepatfile!=null  && prepatfile.ContentLength > 0;
         }
     }
 }

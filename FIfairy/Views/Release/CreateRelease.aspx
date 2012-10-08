@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<FIfairyDomain.ReleaseDetailsModel>" %>
+﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<FIfairyDomain.Release>" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -7,7 +7,8 @@
     <title>CreateRelease</title>
 </head>
 <body>
-    <% using (Html.BeginForm()) {%>
+    <% using (Html.BeginForm("Create", "Release", FormMethod.Post, new { enctype = "multipart/form-data" }))
+       {%>
         <%: Html.ValidationSummary(true) %>
 
         <fieldset>
@@ -38,11 +39,10 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.PrePatEmail) %>
+                <%: Html.LabelFor(model => model.PrePatEmail) %>                
             </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.PrePatEmail) %>
-                <%: Html.ValidationMessageFor(model => model.PrePatEmail) %>
+            <div class="editor-field">                
+                <input type="file" name="prepatfile"/>                             
             </div>
             
             <div class="editor-label">

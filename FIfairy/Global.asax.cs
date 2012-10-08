@@ -17,8 +17,8 @@ namespace FIfairy
             routes.MapRoute("CreateRelease", "CreateRelease",
                             new { Controller = "Release", action = "Create" });
 
-            //routes.MapRoute("ReleaseDetails", "ReleaseDetails/{releaseNumber}",
-            //                new {Controller = "ReleaseDetails", action = "Index"});
+            //routes.MapRoute("Release", "Release/{releaseNumber}",
+            //                new {Controller = "Release", action = "Index"});
 
             routes.MapRoute(
                 "ReleaseByDate", // Route name

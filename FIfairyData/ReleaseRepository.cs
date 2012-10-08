@@ -18,7 +18,7 @@ namespace FIfairyData
 
         #region IReleaseRepository Members
 
-        public IEnumerable<ReleaseDetailsModel> GetReleases()
+        public IEnumerable<Release> GetReleases()
         {            
             ISessionFactory sessionRepository = CreateSessionFactory();
             using (ISession session = sessionRepository.OpenSession())
@@ -26,18 +26,17 @@ namespace FIfairyData
                 // retreive all stores and display them
                 using (session.BeginTransaction())
                 {
-                    return session.CreateCriteria<ReleaseDetailsModel>().List<ReleaseDetailsModel>();
+                    return session.CreateCriteria<Release>().List<Release>();
                 }
             }
         }
 
-        public IEnumerable<ReleaseDetailsModel> GetReleases(DateTime dateTo)
+        public IEnumerable<Release> GetReleases(DateTime dateTo)
         {
-            return null;
-            //return GetReleases().Where(x => x.Date > dateTo);
+            return GetReleases().Where(x => x.ReleaseDate  > dateTo);
         }
 
-        public ReleaseDetailsModel GetReleaseDetails(string releaseNumber)
+        public Release GetReleaseDetails(string releaseNumber)
         {
             ISessionFactory sessionRepository = CreateSessionFactory();
             using (ISession session = sessionRepository.OpenSession())
@@ -46,11 +45,11 @@ namespace FIfairyData
                 using (session.BeginTransaction())
                 {
                     var releaseDetails =
-                        session.CreateCriteria<ReleaseDetailsModel>()
+                        session.CreateCriteria<Release>()
                             .Add(Restrictions.Eq("ReleaseNumber", releaseNumber))
-                            .UniqueResult<ReleaseDetailsModel>();
+                            .UniqueResult<Release>();
 
-                    return new ReleaseDetailsModel
+                    return new Release
                                {
                                    TeamName = releaseDetails.TeamName,
                                    ReleaseNumber = releaseDetails.ReleaseNumber,
@@ -62,8 +61,9 @@ namespace FIfairyData
             }
         }
 
-        public void SaveReleaseDetails(ReleaseDetailsModel releaseDetailsModel)
+        public void SaveReleaseDetails(Release release)
         {
+            release.ReleaseDate = DateTime.Today;
             // create our NHibernate session factory            
             ISessionFactory sessionRepository = CreateSessionFactory();
             using (ISession session = sessionRepository.OpenSession())
@@ -71,7 +71,7 @@ namespace FIfairyData
                 // populate the database
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    session.SaveOrUpdate(releaseDetailsModel);                    
+                    session.SaveOrUpdate(release);                    
                     transaction.Commit();
                 }
             }

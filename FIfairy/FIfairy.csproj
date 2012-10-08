@@ -97,6 +97,10 @@
     <Compile Include="WiringDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\buttons.gif" />
+    <Content Include="Content\images\toolbar.gif" />
+    <Content Include="Content\jquery.cleditor.css" />
+    <Content Include="Content\release.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -124,12 +128,15 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\home.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.4.js" />
     <Content Include="Scripts\jquery-1.4.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.18.js" />
     <Content Include="Scripts\jquery-ui-1.8.18.min.js" />
+    <Content Include="Scripts\jquery.cleditor.js" />
+    <Content Include="Scripts\jquery.cleditor.min.js" />
     <Content Include="Scripts\jquery.ui.button.js" />
     <Content Include="Scripts\jquery.ui.button.min.js" />
     <Content Include="Scripts\jquery.ui.core.js" />
@@ -138,6 +145,7 @@
     <Content Include="Scripts\jquery.ui.datepicker.min.js" />
     <Content Include="Scripts\jquery.ui.widget.js" />
     <Content Include="Scripts\jquery.ui.widget.min.js" />
+    <Content Include="Views\Release\ReleaseSummary.aspx" />
     <Content Include="Views\ReleaseDetails\ReleaseDetails.aspx" />
     <Content Include="Views\Release\CreateRelease.aspx" />
     <Content Include="Views\Release\Release.aspx" />

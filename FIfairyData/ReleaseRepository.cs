@@ -105,6 +105,11 @@ namespace FIfairyData
             return GetReleases().Where(x => x.ReleaseDate > DateTime.Now.AddMonths(-3));
         }
 
+        public IEnumerable<Release> GetLastFiveReleases()
+        {
+            return GetReleases().OrderByDescending(x=>x.ReleaseDate).Take(5);
+        }
+
 
         //GetPrePatEmailFile (filename) -> send file Name instead  of release number
         public Stream GetPrePatEmailFile(string filename)

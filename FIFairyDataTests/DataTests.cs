@@ -54,7 +54,7 @@ namespace FIFairyDataTests
                     .CheckProperty(c => c.TeamName, "ENZO")
                     .CheckProperty(c => c.ReleaseNumber, "REL00001")                    
                     .CheckProperty(c => c.ReleaseFiInstructions, "some FI instructions")
-                    .CheckProperty(c => c.PrePatEmail, "prepat email")
+                    .CheckProperty(c => c.PrePatEmailFileInfo, new PrePatEmailFileInfo(){Length=123, Name="filename"})
                     .CheckProperty(c => c.ServiceNowTicketLink, "www.someurl.com")
                     .VerifyTheMappings();
             }

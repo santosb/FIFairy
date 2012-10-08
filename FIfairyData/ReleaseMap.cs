@@ -8,12 +8,10 @@ namespace FIfairyData
         public ReleaseMap()
         {
             Map(x => x.TeamName);
-            Id(x => x.ReleaseNumber).GeneratedBy.Assigned();
-            Map(x => x.PrePatEmail);
+            Id(x => x.ReleaseNumber).GeneratedBy.Assigned();           
             Map(x => x.ReleaseFiInstructions);
             Map(x => x.ServiceNowTicketLink);
-            Map(x => x.ReleaseDate);
-            //Map(x => x.PrePatEmailFileInfo);
+            Map(x => x.ReleaseDate);            
             Component(x => x.PrePatEmailFileInfo, m =>
                                                       {
                                                           m.Map(x => x.Length);

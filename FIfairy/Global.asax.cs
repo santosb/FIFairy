@@ -14,29 +14,14 @@ namespace FIfairy
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            //routes.MapRoute(
-            //    "DownloadPrePatEmailFile", // Route name
-            //    "DownloadPrePatEmailFile", // URL with parameters
-            //    new { controller = "ReleaseDetails", action = "DownloadPrePatEmailFile" } // Parameter defaults
-            //    );
-
             routes.MapRoute("CreateRelease", "CreateRelease",
                             new { Controller = "Release", action = "Create" });
-
-            //routes.MapRoute("Release", "Release/{releaseNumber}",
-            //                new {Controller = "Release", action = "Index"});
 
             routes.MapRoute(
                 "ReleaseByDate", // Route name
                 "ReleasesByDate/{year}/{month}/{day}", // URL with parameters
                 new {controller = "Release", action = "ReleaseByDate"} // Parameter defaults
                 );
-
-            //routes.MapRoute(
-            //    "Release", // Route name
-            //    "{controller}/{action}", // URL with parameters
-            //    new { controller = "Release", action = "Index"} // Parameter defaults
-            //    );
 
             routes.MapRoute(
                 "Default", // Route name

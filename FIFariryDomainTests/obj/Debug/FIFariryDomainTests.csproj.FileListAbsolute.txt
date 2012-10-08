@@ -1,0 +1,12 @@
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\bin\Debug\FIFariryDomainTests.dll
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\bin\Debug\FIFariryDomainTests.pdb
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\bin\Debug\FIfairyDomain.dll
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\bin\Debug\Moq.dll
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\bin\Debug\nunit.framework.dll
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\bin\Debug\FIfairyDomain.pdb
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\bin\Debug\Moq.pdb
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\bin\Debug\Moq.xml
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\bin\Debug\nunit.framework.xml
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\obj\Debug\ResolveAssemblyReference.cache
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\obj\Debug\FIFariryDomainTests.dll
+C:\FI fairy\FIfairy\FIfairy\FIFariryDomainTests\obj\Debug\FIFariryDomainTests.pdb

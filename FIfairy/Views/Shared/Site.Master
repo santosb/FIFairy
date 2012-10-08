@@ -20,9 +20,11 @@
                 <% Html.RenderPartial("LogOnUserControl"); %>
             </div> 
             
-            <div id="menucontainer">
-            
-                <ul id="menu">              
+            <div id="menucontainer" class="clear">
+                <ul id="menu">
+                    <li><%=Html.ActionLink("Create Release", "Create", "Release")%></li>
+                    <li><%=Html.ActionLink("Get All Releases", "Index", "Release")%></li>
+                    <li><%=Html.ActionLink("Get Last three month releases", "ReleaseByDate", "Release", new { year = DateTime.Now.AddMonths(-3).Year, month = DateTime.Now.AddMonths(-3).Month, day = DateTime.Now.AddMonths(-3).Day })%></li>              
                     <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
                     <li><%: Html.ActionLink("About", "About", "Home")%></li>
                 </ul>

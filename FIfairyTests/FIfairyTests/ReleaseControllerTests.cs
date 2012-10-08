@@ -20,7 +20,11 @@ namespace FIfairyTests
         {
             // TODO: tests about different types of data should happen in the repository
             // like different teams and different dates
-            IEnumerable<Release> expectedReleaseModel = new List<Release> { new Release("Enzo", "REL1216", new DateTime(2011, 10, 20)), };
+            IEnumerable<Release> expectedReleaseModel = new List<Release>
+                                                            {
+                                                                new Release("Enzo", "REL1216",
+                                                                            new DateTime(2011, 10, 20)),
+                                                            };
 
             var releaseRepository = new Mock<IReleaseRepository>();
             releaseRepository.Setup(x => x.GetReleases()).Returns(expectedReleaseModel);
@@ -58,25 +62,6 @@ namespace FIfairyTests
         }
 
         [Test]
-        public void ShouldDisplayReleasesForTheLastThreeMonths()
-        {            
-            //given
-            IEnumerable<Release> expectedReleases = new List<Release> { new Release("Enzo", "REL1216", DateTime.Today.AddMonths(-2)), };
-
-            //when
-            var releaseRepository = new Mock<IReleaseRepository>();
-            releaseRepository.Setup(x => x.GetReleasesOfLastThreeMonths()).Returns(expectedReleases);
-
-            var releaseController = new ReleaseController(releaseRepository.Object);
-            ViewResult result = releaseController.ReleasesOfLastThreeMonths();
-            var model = (IEnumerable<Release>)result.ViewData.Model;
-
-            //then
-            Assert.That(result.ViewName, Is.EqualTo("Release"));
-            Assert.That(model, Is.EqualTo(expectedReleases));
-        }
-
-        [Test]
         public void ShouldDisplayReleaseDetails()
         {
             //given
@@ -87,8 +72,7 @@ namespace FIfairyTests
                                                   {
                                                       ReleaseNumber = releaseNumber,
                                                       ReleaseFiInstructions = "FI as Normal",
-                                                      TeamName = "ENZO",
-                                                      PrePatEmail = "we all love pre pat meetings",
+                                                      TeamName = "ENZO", PrePatEmailFileInfo = new PrePatEmailFileInfo(){Length=123, Name="prepatemailfile"},                                                      
                                                       ServiceNowTicketLink = "www.google.co.uk"
                                                   };
 
@@ -135,8 +119,7 @@ namespace FIfairyTests
                                           {
                                               ReleaseNumber = "REL1216",
                                               ReleaseFiInstructions = "FI as Normal",
-                                              TeamName = "ENZO",
-                                              PrePatEmail = "we all love pre pat meetings",
+                                              TeamName = "ENZO",                                              
                                               ServiceNowTicketLink = "www.google.co.uk"
                                           };
 
@@ -170,7 +153,7 @@ namespace FIfairyTests
 
             releaseRepository.Setup(m => m.SaveReleaseDetails(It.IsAny<Release>()));
 
-            
+
             postedfile.Setup(x => x.InputStream).Returns(expectedStream);
 
             //when
@@ -179,7 +162,8 @@ namespace FIfairyTests
             //Then            
             releaseRepository.Verify(x => x.SaveReleaseDetails(It.IsAny<Release>()), Times.Once());
 
-            releaseRepository.Verify(x => x.SavePrePatEmailFile(expectedFileName + expectedFileTypeExtension, expectedStream), Times.Once());
+            releaseRepository.Verify(
+                x => x.SavePrePatEmailFile(expectedFileName + expectedFileTypeExtension, expectedStream), Times.Once());
 
             Assert.That(release.PrePatEmailFileInfo.Name, Is.EqualTo(expectedFileName + expectedFileTypeExtension));
             Assert.That(release.PrePatEmailFileInfo.Length, Is.EqualTo(8192));
@@ -203,6 +187,33 @@ namespace FIfairyTests
             Assert.That(fileResult.FileStream, Is.EqualTo(expectedStream));
             Assert.That(fileResult.ContentType, Is.EqualTo("application/vnd.ms-outlook"));
             Assert.That(fileResult.FileDownloadName, Is.EqualTo(expectedFileName));
+        }
+
+        [Test]
+        public void ShouldDisplayLastFiveReleasesOrderedByDate()
+        {
+            //given
+            IEnumerable<Release> expectedReleases = new List<Release>
+                                                        {                                                            
+                                                            new Release("Enzo", "REL4",DateTime.Today.AddMonths(-1).AddDays(2)),
+                                                            new Release("Enzo", "REL5",DateTime.Today.AddMonths(-1).AddDays(1)),
+                                                            new Release("Bob", "REL6", DateTime.Today.AddMonths(-1)),
+                                                            new Release("Enzo", "REL1", DateTime.Today.AddMonths(-2)),
+                                                            new Release("Phoenix", "REL2", DateTime.Today.AddMonths(-2)),
+                                                            new Release("Fire", "REL3", DateTime.Today.AddMonths(-2))
+                                                        };
+
+            //when
+            var releaseRepository = new Mock<IReleaseRepository>();
+            releaseRepository.Setup(x => x.GetLastFiveReleases()).Returns(expectedReleases);
+
+            var dashboardController = new ReleaseController(releaseRepository.Object);
+            ViewResult result = dashboardController.LastFiveReleases();
+            var model = (IEnumerable<Release>) result.ViewData.Model;
+
+            //then
+            Assert.That(result.ViewName, Is.EqualTo("ReleaseSummary"));
+            Assert.That(model, Is.EqualTo(expectedReleases));
         }
     }
 }

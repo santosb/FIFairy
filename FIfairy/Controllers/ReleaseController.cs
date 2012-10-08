@@ -32,9 +32,9 @@ namespace FIfairy.Controllers
         public ViewResult Create()
         {
             return View("CreateRelease");
-        }       
-
-        [HttpPost]
+        }
+        
+        [HttpPost, ValidateInput(false)]
         public ActionResult Create(Release release, HttpPostedFileBase prepatfile)
         {
             try
@@ -61,9 +61,9 @@ namespace FIfairy.Controllers
         }
 
         [HttpGet]
-        public ViewResult ReleasesOfLastThreeMonths()
+        public ViewResult LastFiveReleases()
         {
-            return View("Release", _releaseRepository.GetReleasesOfLastThreeMonths());
+            return View("ReleaseSummary", _releaseRepository.GetLastFiveReleases());
         }
     }
 }

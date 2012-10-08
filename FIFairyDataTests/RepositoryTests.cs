@@ -104,6 +104,37 @@ namespace FIFairyDataTests
             File.Delete(actualFilename);
         }
 
+        [Test]
+        public void ShouldGetLastFiveReleases()
+        {
+            //given
+            var releaseRepository = new ReleaseRepository();
+            var expectedReleaseDetailsModels = new List<Release>
+                                                   {
+                                                       new ReleaseBuilder().WithReleaseNumber("REL05").WithReleaseDate(DateTime.Today.AddDays(-1)).Build(),
+                                                       new ReleaseBuilder().WithReleaseNumber("REL04").WithReleaseDate(DateTime.Today.AddMonths(-1)).Build(),
+                                                       new ReleaseBuilder().WithReleaseNumber("REL03").WithReleaseDate(DateTime.Today.AddMonths(-1)).Build(),
+                                                       new ReleaseBuilder().WithReleaseNumber("REL02").WithReleaseDate(DateTime.Today.AddMonths(-2).AddDays(2)).Build(),
+                                                       new ReleaseBuilder().WithReleaseNumber("REL01").WithReleaseDate(DateTime.Today.AddMonths(-2)).Build()                                                       
+                                                   };
+
+            var lastfiveReleases = new Release[expectedReleaseDetailsModels.Count];
+            expectedReleaseDetailsModels.CopyTo(lastfiveReleases);
+
+            expectedReleaseDetailsModels.Add(new ReleaseBuilder().WithReleaseNumber("REL06").WithReleaseDate(DateTime.Today.AddMonths(-3).AddDays(-1)).Build());
+
+            //when           
+            foreach (Release expectedReleaseDetailsModel in expectedReleaseDetailsModels)
+            {
+                releaseRepository.SaveReleaseDetails(expectedReleaseDetailsModel);
+            }
+
+            // then
+            IEnumerable<Release> releaseDetailsModels = releaseRepository.GetLastFiveReleases();
+            IEnumerable<Release> expectedReleases = lastfiveReleases.ToList();            
+            Assert.That(releaseDetailsModels, Is.EqualTo(expectedReleases));
+        }
+
         private string ToAbsolutePath(string filename)
         {
             return AppDomain.CurrentDomain.BaseDirectory + @"\" + filename;

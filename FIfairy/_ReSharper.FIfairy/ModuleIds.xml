@@ -10,4 +10,5 @@
   <Module PersistentId="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" ModuleId="System.Web" />
   <Module PersistentId="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="mscorlib" />
   <Module PersistentId="FIfairyData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ModuleId="FIfairyData_1" />
+  <Module PersistentId="E8333056-4800-416D-B998-8901C066900B" ModuleId="FIFariryDomainTests" />
 </Modules>

@@ -8,8 +8,7 @@ namespace FIFairyDataTests
         readonly Release release = new Release()
                                       {
                                           ReleaseNumber = "REL00",
-                                          TeamName = "enzo",
-                                          PrePatEmail = "some email",
+                                          TeamName = "enzo",                                          
                                           ServiceNowTicketLink = "www.alink.com",
                                           ReleaseFiInstructions = "instructions",
                                           PrePatEmailFileInfo =
@@ -26,6 +25,12 @@ namespace FIFairyDataTests
         public Release  Build()
         {
             return release;
+        }
+
+        public ReleaseBuilder WithReleaseDate(DateTime date)
+        {
+            release.ReleaseDate = date;
+            return this;
         }
     }
 }

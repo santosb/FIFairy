@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<FIfairyDomain.Release>" %>
+﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<FIfairyDomain.Release>" ValidateRequest="false" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -10,25 +10,27 @@
     <link href="~/Content/themes/base/jquery.ui.theme.css" rel="stylesheet" type="text/css"/>
     <link href="~/Content/themes/base/jquery.ui.button.css" rel="stylesheet" type="text/css"/>
     
+    <link href="~/Content/jquery.cleditor.css" rel="stylesheet" type="text/css" />    
+    
 <%--    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>--%>
     
     <script type="text/javascript" src="/Scripts/jquery-1.4.4.min.js"></script>
     <script type="text/javascript" src="/Scripts/jquery-ui-1.8.18.min.js"></script>    
+    <script type="text/javascript" src="/Scripts/jquery.cleditor.min.js"></script>
   
   <script type="text/javascript" >
       $(function() {
-        $("#datepicker").datepicker({ beforeShowDay: $.datepicker.noWeekends });          
-        $("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");          
+        $("#datepicker").datepicker({ beforeShowDay: $.datepicker.noWeekends });
+        $("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
+        $("#fi-instructions").cleditor();        
       });
-  </script>
-  
+  </script>     
 </head>
-<body>
+<body>    
     <% using (Html.BeginForm("Create", "Release", FormMethod.Post, new { enctype = "multipart/form-data" }))
        {%>
-        <%: Html.ValidationSummary(true) %>
-            
+        <%: Html.ValidationSummary(true) %>             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.ReleaseNumber) %>
             </div>
@@ -41,10 +43,9 @@
                 <%: Html.LabelFor(model => model.ReleaseFiInstructions) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.ReleaseFiInstructions) %>
+                <%: Html.TextAreaFor(model => model.ReleaseFiInstructions, new { @id = "fi-instructions"})%>                               
                 <%: Html.ValidationMessageFor(model => model.ReleaseFiInstructions) %>
             </div>
-            
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.TeamName) %>
             </div>
@@ -54,7 +55,7 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.PrePatEmail) %>                
+                <%: Html.LabelFor(model => model.PrePatEmailFileInfo.Name) %>                
             </div>
             <div class="editor-field">                
                 <input type="file" name="prepatfile"/>                             
@@ -86,4 +87,3 @@
 
 </body>
 </html>
-

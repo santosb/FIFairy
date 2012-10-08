@@ -1,11 +1,11 @@
 ﻿/*----------------------------------------------------------
-The base color for this template is #5c87b2. If you'd like
+The base color for this template is #E4E4E4. If you'd like
 to use a different color start by replacing all instances of
-#5c87b2 with your new color.
+#E4E4E4 with your new color.
 ----------------------------------------------------------*/
 body
 {
-    background-color: #5c87b2;
+    background-color: #E4E4E4;
     font-size: .75em;
     font-family: Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -32,11 +32,6 @@ a:active
     color: #12eb87;
 }
 
-p, ul
-{
-    margin-bottom: 20px;
-    line-height: 1.6em;
-}
 
 /* HEADINGS   
 ----------------------------------------------------------*/
@@ -84,7 +79,7 @@ first child of the left and right table columns */
 page width. Or, you can specify an exact pixel width. */
 .page
 {
-    width: 90%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -102,7 +97,7 @@ page width. Or, you can specify an exact pixel width. */
     font-weight: bold;
     padding: 5px 0;
     margin: 0;
-    color: #fff;
+    /*color: #fff;*/
     border: none;
     line-height: 2em;
     font-family: Arial, Helvetica, sans-serif;
@@ -112,7 +107,7 @@ page width. Or, you can specify an exact pixel width. */
 #main
 {
     padding: 30px 30px 15px 30px;
-    background-color: #fff;
+    /*background-color: #fff;*/
     margin-bottom: 30px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
 }
@@ -131,7 +126,7 @@ page width. Or, you can specify an exact pixel width. */
 ----------------------------------------------------------*/
 ul#menu
 {
-    border-bottom: 1px #5C87B2 solid;
+    border-bottom: 1px #E4E4E4 solid;
     padding: 0 0 2px;
     position: relative;
     margin: 0;
@@ -150,7 +145,7 @@ ul#menu li#greeting
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
-    color: #fff;
+    /*color: #fff;*/
 }
 
 ul#menu li a
@@ -268,24 +263,24 @@ div#title
     display:block;
     text-align:right;
     margin:10px;
-    color:White;
+    /*color:White;*/
 }
 
 #logindisplay a:link
 {
-    color: white;
+    /*color: white;*/
     text-decoration: underline;
 }
 
 #logindisplay a:visited
 {
-    color: white;
+    /*color: white;*/
     text-decoration: underline;
 }
 
 #logindisplay a:hover
 {
-    color: white;
+    /*color: white;*/
     text-decoration: none;
 }
 

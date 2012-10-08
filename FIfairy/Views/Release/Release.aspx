@@ -4,17 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
+        <link href="../../Content/release.css" rel="stylesheet" type="text/css" />
+        <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
         <title>Releases Page</title>
     </head>
-    <body>        
-            <% foreach (var release in Model)
-               { %>
-                <div>
-                    Team: <%= release.TeamName %> 
-                    RelNumber: <%= release.ReleaseNumber %>
-                    Date: <%= release.ReleaseDate%>
-                    <%=Html.ActionLink("Details", "Index", "ReleaseDetails", new { releaseNumber = release.ReleaseNumber }, null)%>
-                </div>                  
-            <% } %>       
+    <body class="releaseswrap">
+        <div class="releases">
+            <% Html.RenderPartial("ReleaseSummary", Model); %>
+        </div>        
     </body>
 </html>

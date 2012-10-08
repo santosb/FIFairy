@@ -47,6 +47,7 @@
                 <%: Html.ValidationMessageFor(model => model.ReleaseFiInstructions) %>
             </div>
             <div class="editor-label">
+                <%: Html.DropDownListFor(model => model.TeamName, new SelectList(FIfairyDomain.Release.TeamNames, "TeamId", "TeamName"))%>
                 <%: Html.LabelFor(model => model.TeamName) %>
             </div>
             <div class="editor-field">

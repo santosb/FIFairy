@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
@@ -8,7 +10,7 @@ namespace FIfairyDomain
     {
         public Release()
         {
-            ReleaseDate = DateTime.Today;
+            ReleaseDate = DateTime.Today;            
         }
 
         public Release(string teamName, string releaseNumber, DateTime releaseDate)
@@ -28,6 +30,24 @@ namespace FIfairyDomain
         public virtual string ServiceNowTicketLink { get; set; }
 
         public virtual PrePatEmailFileInfo PrePatEmailFileInfo { get; set; }
+
+        public static IEnumerable<Team> TeamNames
+        {
+            get
+            {
+               return new List<Team>
+                    {
+                        new Team {TeamId = 1, TeamName = "Fire"},
+                        new Team {TeamId = 2, TeamName = "Colombo"},
+                        new Team {TeamId = 3, TeamName = "Topgun"},
+                        new Team {TeamId = 4, TeamName = "Phoenix"},
+                        new Team {TeamId = 5, TeamName = "Magnum"},
+                        new Team {TeamId = 6, TeamName = "Enzo"},
+                        new Team {TeamId = 7, TeamName = "Ops"}
+                    };
+            }
+        }
+    
 
         #region Equality 
         public virtual bool Equals(Release other)
@@ -56,38 +76,6 @@ namespace FIfairyDomain
                 result = (result*397) ^ (ServiceNowTicketLink != null ? ServiceNowTicketLink.GetHashCode() : 0);
                 result = (result*397) ^ (PrePatEmailFileInfo != null ? PrePatEmailFileInfo.GetHashCode() : 0);
                 return result;
-            }
-        }
-        #endregion
-    }
-
-    public class PrePatEmailFileInfo
-    {
-        public virtual string Name { get; set; }
-
-        public virtual int Length { get; set; }
-
-        #region equality 
-        public bool Equals(PrePatEmailFileInfo other)
-        {
-            if (ReferenceEquals(null, other)) return false;
-            if (ReferenceEquals(this, other)) return true;
-            return Equals(other.Name, Name) && other.Length == Length;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != typeof (PrePatEmailFileInfo)) return false;
-            return Equals((PrePatEmailFileInfo) obj);
-        }
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                return ((Name != null ? Name.GetHashCode() : 0)*397) ^ Length;
             }
         }
         #endregion

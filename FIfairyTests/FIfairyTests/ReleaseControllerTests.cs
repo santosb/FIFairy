@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using FIfairy.Controllers;
@@ -15,56 +16,45 @@ namespace FIfairyTests
     public class ReleaseControllerTests
     {
         [Test]
-        public void ShouldDisplayReleaseNumbersOfTheLastThreeMonths()
+        public void ShouldDisplayAllReleases()
         {
-            //given
-            IEnumerable<Release> expectedReleaseModel = new List<Release>
-                                                                  {
-                                                                      new Release ("Enzo", "REL1216", new DateTime(2011,10,20)),
-                                                                      new Release("Enzo", "REL54164", new DateTime(2011,10,20)),
-                                                                      new Release("Colombo", "REL1000", new DateTime(2011,10,20))
-                                                                  };
-                                                                      
-            //when
-            var releaseRepository = new Mock<IReleaseRepository>();
-            DateTime dateNow = new DateTime(2012,01,21);
-            DateTime dateTo = dateNow.AddMonths(-3);                        
-
-            releaseRepository.Setup(x => x.GetReleases(dateTo)).Returns(expectedReleaseModel);
-            var releaseController = new ReleaseController(releaseRepository.Object);
-            ViewResult result = releaseController.ReleaseByDate(dateTo.Year, dateTo.Month, dateTo.Day);
-            var model = (IEnumerable<Release>)result.ViewData.Model;
-
-            //then
-            Assert.That(result.ViewName, Is.EqualTo("Release"));
-            Assert.That(model, Is.EqualTo(expectedReleaseModel));
-            Assert.That(model.First().TeamName, Is.EqualTo("Enzo"));
-        }
-
-        [Test]
-        public void ShouldDisplayReleases()
-        {
-            IEnumerable<Release> expectedReleaseModel = new List<Release>
-                       {
-                           new Release("Enzo", "REL1216",  new DateTime(2011,10,20)),
-                           new Release("Enzo", "REL54164", new DateTime(2011,11,20)),
-                           new Release("Enzo", "REL123", new DateTime(2011,03,20)),
-                           new Release("Enzo", "REL124", new DateTime(2011,02,27)),
-                           new Release("Enzo", "REL125", new DateTime(2011,09,26)),
-                           new Release("Colombo", "REL1000", new DateTime(2011,12,25)),
-                           new Release("Colombo", "REL11122", new DateTime(2011,11,04))
-                       };
+            // TODO: tests about different types of data should happen in the repository
+            // like different teams and different dates
+            IEnumerable<Release> expectedReleaseModel = new List<Release> { new Release("Enzo", "REL1216", new DateTime(2011, 10, 20)), };
 
             var releaseRepository = new Mock<IReleaseRepository>();
             releaseRepository.Setup(x => x.GetReleases()).Returns(expectedReleaseModel);
             var releaseController = new ReleaseController(releaseRepository.Object);
             ViewResult result = releaseController.Index();
 
-            var model = (IEnumerable<Release>)result.ViewData.Model;
+            var model = (IEnumerable<Release>) result.ViewData.Model;
 
             Assert.That(result.ViewName, Is.EqualTo("Release"));
             Assert.That(model, Is.EqualTo(expectedReleaseModel));
-            Assert.That(model.First().TeamName, Is.EqualTo("Enzo"));
+        }
+
+        [Test]
+        public void ShouldDisplayReleasesNewerThanDate()
+        {
+            // TODO: Should this be DisplayReleasesForTheLastThreeMonths?
+
+
+            //given
+            DateTime dateTo = new DateTime(2012, 01, 21);
+            IEnumerable<Release> expectedReleases = new List<Release>
+                                                        {new Release("Enzo", "REL1216", dateTo.AddDays(1)),};
+
+            //when
+            var releaseRepository = new Mock<IReleaseRepository>();
+            releaseRepository.Setup(x => x.GetReleases(dateTo)).Returns(expectedReleases);
+
+            var releaseController = new ReleaseController(releaseRepository.Object);
+            ViewResult result = releaseController.ReleaseByDate(dateTo.Year, dateTo.Month, dateTo.Day);
+            var model = (IEnumerable<Release>) result.ViewData.Model;
+
+            //then
+            Assert.That(result.ViewName, Is.EqualTo("Release"));
+            Assert.That(model, Is.EqualTo(expectedReleases));
         }
 
         [Test]
@@ -72,20 +62,16 @@ namespace FIfairyTests
         {
             //given
 
-            string teamName = "ENZO";
             string releaseNumber = "REL1216";
 
-            string releaseFIInstructions = "FI as Normal";
-            string prePatEmail = "we all love pre pat meetings";
-            string serviceNowTicketLink = "www.google.co.uk";
             var expectedReleaseDetailsModel = new Release
-            {
-                ReleaseNumber = releaseNumber,
-                ReleaseFiInstructions = releaseFIInstructions,
-                TeamName = teamName,
-                PrePatEmail = prePatEmail,
-                ServiceNowTicketLink = serviceNowTicketLink
-            };
+                                                  {
+                                                      ReleaseNumber = releaseNumber,
+                                                      ReleaseFiInstructions = "FI as Normal",
+                                                      TeamName = "ENZO",
+                                                      PrePatEmail = "we all love pre pat meetings",
+                                                      ServiceNowTicketLink = "www.google.co.uk"
+                                                  };
 
             var releaseRepository = new Mock<IReleaseRepository>();
             releaseRepository.Setup(x => x.GetReleaseDetails(releaseNumber)).Returns(expectedReleaseDetailsModel);
@@ -93,20 +79,11 @@ namespace FIfairyTests
 
             //when            
             ViewResult result = releaseDetailsController.Index(releaseNumber);
-
-            var model = (Release)result.ViewData.Model;
+            var model = (Release) result.ViewData.Model;
 
             //then
             Assert.That(result.ViewName, Is.EqualTo("ReleaseDetails"));
             Assert.That(model, Is.EqualTo(expectedReleaseDetailsModel));
-            Assert.That(model.ReleaseFiInstructions, Is.EqualTo(releaseFIInstructions));
-            Assert.That(model.ReleaseNumber, Is.EqualTo(releaseNumber));
-            Assert.That(model.TeamName, Is.EqualTo(teamName));
-
-            Assert.That(model.PrePatEmail, Is.EqualTo(prePatEmail));
-
-            Assert.That(model.ServiceNowTicketLink, Is.EqualTo(serviceNowTicketLink));
-
         }
 
         [Test]
@@ -117,8 +94,11 @@ namespace FIfairyTests
             var releaseController = new ReleaseController(releaseRepository.Object);
 
             //when
-            var redirectToRouteResult = (RedirectToRouteResult)releaseController.Create(new Release(), null);
+            var release = new Release();
+            var redirectToRouteResult = (RedirectToRouteResult) releaseController.Create(release, null);
+
             //then
+            releaseRepository.Verify(x => x.SaveReleaseDetails(release), Times.Once());
             Assert.That(redirectToRouteResult.RouteValues["Controller"], Is.EqualTo("Release"));
             Assert.That(redirectToRouteResult.RouteValues["Action"], Is.EqualTo("Index"));
         }
@@ -133,20 +113,19 @@ namespace FIfairyTests
             var releaseController = new ReleaseController(releaseRepository.Object);
 
             var releaseDetailsModel = new Release()
-            {
-                ReleaseNumber = "REL1216",
-                ReleaseFiInstructions = "FI as Normal",
-                TeamName = "ENZO",
-                PrePatEmail = "we all love pre pat meetings",
-                ServiceNowTicketLink = "www.google.co.uk"
-            };
+                                          {
+                                              ReleaseNumber = "REL1216",
+                                              ReleaseFiInstructions = "FI as Normal",
+                                              TeamName = "ENZO",
+                                              PrePatEmail = "we all love pre pat meetings",
+                                              ServiceNowTicketLink = "www.google.co.uk"
+                                          };
 
             //when                        
             releaseController.Create(releaseDetailsModel, null);
 
             //then                        
             releaseRepository.Verify(x => x.SaveReleaseDetails(releaseDetailsModel));
-
         }
 
         [Test]
@@ -165,23 +144,46 @@ namespace FIfairyTests
             string expectedFileTypeExtension = ".msg";
             string savedFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
                                                 String.Concat(expectedFileName, expectedFileTypeExtension));
+            Stream expectedStream = new MemoryStream(Encoding.ASCII.GetBytes("test"));
 
             postedfile.Setup(f => f.ContentLength).Returns(8192);
             postedfile.Setup(f => f.FileName).Returns(String.Concat(expectedFileName, expectedFileTypeExtension));
 
             releaseRepository.Setup(m => m.SaveReleaseDetails(It.IsAny<Release>()));
 
+            
+            postedfile.Setup(x => x.InputStream).Returns(expectedStream);
+
             //when
             releaseController.Create(release, postedfile.Object);
 
             //Then            
             releaseRepository.Verify(x => x.SaveReleaseDetails(It.IsAny<Release>()), Times.Once());
-            postedfile.Verify(x => x.SaveAs(savedFileName), Times.Once());
 
+            releaseRepository.Verify(x => x.SavePrePatEmailFile(expectedFileName + expectedFileTypeExtension, expectedStream), Times.Once());
 
-            Assert.That(release.PrePatEmailFileInfo.Name, Is.EqualTo(savedFileName));
+            Assert.That(release.PrePatEmailFileInfo.Name, Is.EqualTo(expectedFileName + expectedFileTypeExtension));
             Assert.That(release.PrePatEmailFileInfo.Length, Is.EqualTo(8192));
+        }
 
+        [Test]
+        public void ShouldDownloadPrePatEmailFile()
+        {
+            //given
+            var releaseRepository = new Mock<IReleaseRepository>();
+            var release = new ReleaseDetailsController(releaseRepository.Object);
+            string expectedFileName = "Enzo Pre-PAT release 19122011 ref REL11125.0.00";
+
+
+            MemoryStream expectedStream = new MemoryStream(Encoding.ASCII.GetBytes("test"));
+            releaseRepository.Setup(x => x.GetPrePatEmailFile(expectedFileName)).Returns(expectedStream);
+
+            //when            
+            FileStreamResult fileResult = (FileStreamResult) release.DownloadPrePatEmailFile(expectedFileName);
+
+            Assert.That(fileResult.FileStream, Is.EqualTo(expectedStream));
+            Assert.That(fileResult.ContentType, Is.EqualTo("application/vnd.ms-outlook"));
+            Assert.That(fileResult.FileDownloadName, Is.EqualTo(expectedFileName));
         }
     }
 }

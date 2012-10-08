@@ -37,10 +37,10 @@ C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\Moq.xml
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\nunit.framework.xml
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\StructureMap.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\StructureMap.xml
-C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyData.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FluentNHibernate.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\NHibernate.xml
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\Iesi.Collections.xml
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\ResolveAssemblyReference.cache
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\FIfairyTests.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\FIfairyTests.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyData.pdb

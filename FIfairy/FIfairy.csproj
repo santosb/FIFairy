@@ -136,6 +136,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\FIfairyData\FIfairyData.csproj">
       <Project>{25E5855D-D97A-4022-A813-499ADDD4A53F}</Project>
       <Name>FIfairyData</Name>
@@ -144,9 +147,6 @@
       <Project>{8CE05436-D51A-400F-A0E1-B4E2729345D0}</Project>
       <Name>FIfairyDomain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

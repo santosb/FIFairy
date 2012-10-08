@@ -70,7 +70,7 @@ namespace FIFairyDataTests
             Stream expectedFile = File.OpenRead(TestPrePatEmail);            
 
             //when            
-            using(FileStream file = releaseRepository.GetPrePatEmailFile(TestPrePatEmail))
+            using(FileStream file = (FileStream)releaseRepository.GetPrePatEmailFile(TestPrePatEmail))
             {
                 //then
                 Assert.That(file, Is.EqualTo(expectedFile));

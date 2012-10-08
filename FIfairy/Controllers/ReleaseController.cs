@@ -38,27 +38,20 @@ namespace FIfairy.Controllers
         public ActionResult Create(Release release, HttpPostedFileBase prepatfile)
         {
             try
-            {
-                SavePrePatFile(release, prepatfile);
+            {                
+                if (HasPrePatFile(prepatfile))
+                {
+                    _releaseRepository.SavePrePatEmailFile(prepatfile.FileName, prepatfile.InputStream);
+                    release.PrePatEmailFileInfo = new PrePatEmailFileInfo { Name = prepatfile.FileName, Length = prepatfile.ContentLength };
+                }
 
                 _releaseRepository.SaveReleaseDetails(release);
 
                 return RedirectToAction("Index", "Release");
             }
-            catch
+            catch (Exception)
             {
                 return View("CreateRelease");
-            }
-        }
-
-        private static void SavePrePatFile(Release release, HttpPostedFileBase prepatfile)
-        {
-            if (HasPrePatFile(prepatfile))
-            {
-                string savedFileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Path.GetFileName(prepatfile.FileName));
-                prepatfile.SaveAs(savedFileName);
-
-                release.PrePatEmailFileInfo = new PrePatEmailFileInfo {Name = savedFileName, Length = prepatfile.ContentLength};
             }
         }
 
@@ -66,5 +59,7 @@ namespace FIfairy.Controllers
         {
             return prepatfile!=null  && prepatfile.ContentLength > 0;
         }
+
+
     }
 }

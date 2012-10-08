@@ -17,5 +17,10 @@ namespace FIfairy.Controllers
             return View("ReleaseDetails", _releaseRepository.GetReleaseDetails(releaseNumber));
         }
 
+        
+        public FileResult DownloadPrePatEmailFile(string filename)
+        {
+            return File(_releaseRepository.GetPrePatEmailFile(filename), "application/vnd.ms-outlook", filename);
+        }
     }
 }

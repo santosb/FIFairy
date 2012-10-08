@@ -8,4 +8,6 @@
   <Module PersistentId="A6264769-B21B-424C-BB7F-97F154B6CA61" ModuleId="FIFairyDataTests" />
   <Module PersistentId="FluentNHibernate, Version=1.3.0.717, Culture=neutral, PublicKeyToken=8aa435e3cb308880" ModuleId="FluentNHibernate" />
   <Module PersistentId="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" ModuleId="System.Web" />
+  <Module PersistentId="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="mscorlib" />
+  <Module PersistentId="FIfairyData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ModuleId="FIfairyData_1" />
 </Modules>

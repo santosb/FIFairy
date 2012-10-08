@@ -27,6 +27,7 @@ namespace FIfairyData
                 using (session.BeginTransaction())
                 {
                     return session.CreateCriteria<Release>().List<Release>();
+
                 }
             }
         }
@@ -101,7 +102,7 @@ namespace FIfairyData
 
 
         //GetPrePatEmailFile (filename) -> send file Name instead  of release number
-        public FileStream GetPrePatEmailFile(string filename)
+        public Stream GetPrePatEmailFile(string filename)
         {        
             string savedFileName = AppDomain.CurrentDomain.BaseDirectory + @"\"  + filename; 
             return  File.OpenRead(savedFileName);

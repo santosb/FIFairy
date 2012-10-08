@@ -1,3 +1,4 @@
+C:\FI fairy\FIfairy\FIfairy\FIFairyDataTests\bin\Debug\Enzo Pre-PAT release 19122011 ref REL11125.0.00.msg
 C:\FI fairy\FIfairy\FIfairy\FIFairyDataTests\bin\Debug\FIFairyDataTests.dll
 C:\FI fairy\FIfairy\FIfairy\FIFairyDataTests\bin\Debug\FIFairyDataTests.pdb
 C:\FI fairy\FIfairy\FIfairy\FIFairyDataTests\bin\Debug\FIfairyData.dll
@@ -19,4 +20,3 @@ C:\FI fairy\FIfairy\FIfairy\FIFairyDataTests\bin\Debug\nunit.framework.xml
 C:\FI fairy\FIfairy\FIfairy\FIFairyDataTests\obj\Debug\ResolveAssemblyReference.cache
 C:\FI fairy\FIfairy\FIfairy\FIFairyDataTests\obj\Debug\FIFairyDataTests.dll
 C:\FI fairy\FIfairy\FIfairy\FIFairyDataTests\obj\Debug\FIFairyDataTests.pdb
-C:\FI fairy\FIfairy\FIfairy\FIFairyDataTests\bin\Debug\Enzo Pre-PAT release 19122011 ref REL11125.0.00.msg

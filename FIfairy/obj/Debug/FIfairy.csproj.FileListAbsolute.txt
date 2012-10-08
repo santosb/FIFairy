@@ -10,7 +10,6 @@ C:\Samples\FIfairy\FIfairy\bin\StructureMap.pdb
 C:\Samples\FIfairy\FIfairy\bin\StructureMap.xml
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairy.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairy.pdb
-C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyData.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyDomain.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FluentNHibernate.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\Iesi.Collections.dll
@@ -18,7 +17,6 @@ C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\NHibernate.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\StructureMap.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\System.Data.SQLite.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\System.Data.SQLite.Linq.dll
-C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyData.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyDomain.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FluentNHibernate.pdb
 C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\Iesi.Collections.xml
@@ -28,3 +26,5 @@ C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\StructureMap.xml
 C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\ResolveAssemblyReference.cache
 C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\FIfairy.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\FIfairy.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyData.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyData.pdb

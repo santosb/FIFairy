@@ -1,0 +1,16 @@
+﻿Code version: 6.1.37.86
+Assembly name FIfairyData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null mvid {28eb0429-eeaf-4fd9-8a6d-9b6346366509}
+* ref mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {fcb9dac8-ae3a-4886-93b0-f4cd5b0db0be}
+* ref FIfairyDomain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  mvid {28d178b8-4d54-4861-bb70-5de9cfd69036}
+* ref FluentNHibernate, Version=1.3.0.717, Culture=neutral, PublicKeyToken=8aa435e3cb308880
+  mvid {80c84fff-698c-4036-9e5d-ee0827e181c0}
+* ref NHibernate, Version=3.2.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+  mvid {fb0cb40b-31a8-431d-ae46-c60c3dfd0a19}
+* ref mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {fcb9dac8-ae3a-4886-93b0-f4cd5b0db0be}
+* ref System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {c08d55d3-6463-439d-b112-60f6502ec141}
+* ref System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {c08d55d3-6463-439d-b112-60f6502ec141}

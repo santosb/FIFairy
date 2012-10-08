@@ -10,7 +10,8 @@
     Release Number:<%: Model.ReleaseNumber %><br/>
     FI Instructions:<%: Model.ReleaseFiInstructions %><br/>
     Team Name:<%= Model.TeamName %><br/>
-    Pre Pat Email:<%= Model.PrePatEmail %><br/>
+    Pre Pat Email:<%= Model.PrePatEmailFileInfo.Name  %><br/>     
+    <%=Html.ActionLink("Download", "DownloadPrePatEmailFile", "ReleaseDetails", new { filename = Model.PrePatEmailFileInfo.Name }, null)%><br/>  
     ServiceNow Ticket:<a href="<%= Model.ServiceNowTicketLink %>" id="snticket">Link</a>
     <p>        
         <%: Html.ActionLink("Back to List", "Index") %>

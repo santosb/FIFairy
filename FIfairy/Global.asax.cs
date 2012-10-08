@@ -14,6 +14,12 @@ namespace FIfairy
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //routes.MapRoute(
+            //    "DownloadPrePatEmailFile", // Route name
+            //    "DownloadPrePatEmailFile", // URL with parameters
+            //    new { controller = "ReleaseDetails", action = "DownloadPrePatEmailFile" } // Parameter defaults
+            //    );
+
             routes.MapRoute("CreateRelease", "CreateRelease",
                             new { Controller = "Release", action = "Create" });
 

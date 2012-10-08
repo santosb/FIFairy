@@ -2,6 +2,7 @@
 using System.IO;
 using System.Reflection;
 using FIfairyData;
+using FIfairyDomain;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using FluentNHibernate.Testing;
@@ -41,20 +42,6 @@ namespace FIFairyDataTests
                 .Create(false, true);
         }
 
-        [Test]
-        public void CanCorrectlyMapRelease()
-        {
-            ISessionFactory sessionFactory = CreateSessionFactory();
-
-            using (ISession session = sessionFactory.OpenSession())
-            {
-                new PersistenceSpecification<Release>(session)
-                    .CheckProperty(c => c.TeamName, "ENZO")
-                    .CheckProperty(c => c.ReleaseNumber, "REL00001")
-                    .CheckProperty(c => c.Date, new DateTime(2012, 02, 12))
-                    .VerifyTheMappings();
-            }
-        }
 
         [Test]
         public void CanCorrectlyMapReleaseDetails()
@@ -63,7 +50,7 @@ namespace FIFairyDataTests
 
             using (ISession session = sessionFactory.OpenSession())
             {
-                new PersistenceSpecification<ReleaseDetails>(session)
+                new PersistenceSpecification<ReleaseDetailsModel>(session)
                     .CheckProperty(c => c.TeamName, "ENZO")
                     .CheckProperty(c => c.ReleaseNumber, "REL00001")                    
                     .CheckProperty(c => c.ReleaseFiInstructions, "some FI instructions")

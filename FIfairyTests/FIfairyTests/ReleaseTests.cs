@@ -16,11 +16,11 @@ namespace FIfairyTests
         public void ShouldDisplayReleaseNumbersOfTheLastThreeMonths()
         {
             //given
-            IEnumerable<ReleaseModel> expectedReleaseModel = new List<ReleaseModel>
+            IEnumerable<ReleaseDetailsModel> expectedReleaseModel = new List<ReleaseDetailsModel>
                                                                   {
-                                                                      new ReleaseModel("Enzo", "REL1216", new DateTime(2011,10,20)),
-                                                                      new ReleaseModel("Enzo", "REL54164", new DateTime(2011,10,20)),
-                                                                      new ReleaseModel("Colombo", "REL1000", new DateTime(2011,10,20))
+                                                                      new ReleaseDetailsModel ("Enzo", "REL1216", new DateTime(2011,10,20)),
+                                                                      new ReleaseDetailsModel("Enzo", "REL54164", new DateTime(2011,10,20)),
+                                                                      new ReleaseDetailsModel("Colombo", "REL1000", new DateTime(2011,10,20))
                                                                   };
                                                                       
             //when
@@ -31,7 +31,7 @@ namespace FIfairyTests
             releaseRepository.Setup(x => x.GetReleases(dateTo)).Returns(expectedReleaseModel);
             var releaseController = new ReleaseController(releaseRepository.Object);
             ViewResult result = releaseController.ReleaseByDate(dateTo.Year, dateTo.Month, dateTo.Day);
-            var model = (IEnumerable<ReleaseModel>)result.ViewData.Model;
+            var model = (IEnumerable<ReleaseDetailsModel>)result.ViewData.Model;
 
             //then
             Assert.That(result.ViewName, Is.EqualTo("Release"));
@@ -42,15 +42,15 @@ namespace FIfairyTests
         [Test]
         public void ShouldDisplayReleases()
         {
-            IEnumerable<ReleaseModel> expectedReleaseModel = new List<ReleaseModel>
+            IEnumerable<ReleaseDetailsModel> expectedReleaseModel = new List<ReleaseDetailsModel>
                        {
-                           new ReleaseModel("Enzo", "REL1216",  new DateTime(2011,10,20)),
-                           new ReleaseModel("Enzo", "REL54164", new DateTime(2011,11,20)),
-                           new ReleaseModel("Enzo", "REL123", new DateTime(2011,03,20)),
-                           new ReleaseModel("Enzo", "REL124", new DateTime(2011,02,27)),
-                           new ReleaseModel("Enzo", "REL125", new DateTime(2011,09,26)),
-                           new ReleaseModel("Colombo", "REL1000", new DateTime(2011,12,25)),
-                           new ReleaseModel("Colombo", "REL11122", new DateTime(2011,11,04))
+                           new ReleaseDetailsModel("Enzo", "REL1216",  new DateTime(2011,10,20)),
+                           new ReleaseDetailsModel("Enzo", "REL54164", new DateTime(2011,11,20)),
+                           new ReleaseDetailsModel("Enzo", "REL123", new DateTime(2011,03,20)),
+                           new ReleaseDetailsModel("Enzo", "REL124", new DateTime(2011,02,27)),
+                           new ReleaseDetailsModel("Enzo", "REL125", new DateTime(2011,09,26)),
+                           new ReleaseDetailsModel("Colombo", "REL1000", new DateTime(2011,12,25)),
+                           new ReleaseDetailsModel("Colombo", "REL11122", new DateTime(2011,11,04))
                        };
 
             var releaseRepository = new Mock<IReleaseRepository>();
@@ -58,7 +58,7 @@ namespace FIfairyTests
             var releaseController = new ReleaseController(releaseRepository.Object);
             ViewResult result = releaseController.Index();
 
-            var model = (IEnumerable<ReleaseModel>)result.ViewData.Model;
+            var model = (IEnumerable<ReleaseDetailsModel>)result.ViewData.Model;
 
             Assert.That(result.ViewName, Is.EqualTo("Release"));
             Assert.That(model, Is.EqualTo(expectedReleaseModel));

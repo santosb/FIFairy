@@ -1,14 +1,14 @@
-﻿using FluentNHibernate.Mapping;
+﻿using FIfairyDomain;
+using FluentNHibernate.Mapping;
 
 namespace FIfairyData
 {
-    class ReleaseDetailsMap : ClassMap<ReleaseDetails>
+    class ReleaseDetailsMap : ClassMap<ReleaseDetailsModel>
     {
         public ReleaseDetailsMap()
-        {
-            Id(x => x.Id);
+        {            
             Map(x => x.TeamName);
-            Map(x => x.ReleaseNumber);
+            Id(x => x.ReleaseNumber).GeneratedBy.Assigned();
             Map(x => x.PrePatEmail);
             Map(x => x.ReleaseFiInstructions);
             Map(x => x.ServiceNowTicketLink);            

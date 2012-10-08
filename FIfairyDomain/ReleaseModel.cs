@@ -5,32 +5,24 @@ namespace FIfairyDomain
 {
     public class ReleaseModel 
     {
-        private readonly string _teamName;
-        private readonly string _releaseNumber;
         private readonly DateTime _dateTime;
 
+        public ReleaseModel()
+        {
+            
+        }
+        
         public ReleaseModel(string teamName, string releaseNumber, DateTime dateTime)
         {
-            _teamName = teamName;
-            _releaseNumber = releaseNumber;
+            TeamName = teamName;
+            ReleaseNumber = releaseNumber;
             _dateTime = dateTime;
         }
 
-        public DateTime Date
-        {
-            get { return _dateTime; }
-        }
+        public virtual DateTime Date { get; set; }
 
-        public string ReleaseNumber
-        {
-            get { return _releaseNumber; }
-        }
+        public virtual string ReleaseNumber { get;  set; }
 
-        public string TeamName
-        {
-            get { return _teamName; }
-        }
-
-      
+        public virtual string TeamName { get; set; }
     }
 }

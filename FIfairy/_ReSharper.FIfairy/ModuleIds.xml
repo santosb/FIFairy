@@ -4,4 +4,5 @@
   <Module PersistentId="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A" ModuleId="FIfairyTests" />
   <Module PersistentId="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.Web.Mvc" />
   <Module PersistentId="FIfairyDomain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ModuleId="FIfairyDomain_1" />
+  <Module PersistentId="25E5855D-D97A-4022-A813-499ADDD4A53F" ModuleId="FIfairyData" />
 </Modules>

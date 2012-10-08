@@ -972,7 +972,7 @@ jQuery.props = {
 	cellspacing: "cellSpacing",
 	rowspan: "rowSpan",
 	colspan: "colSpan",
-	tabindex: "tabIndex",
+	tabindex: "tabReleaseByDate",
 	usemap: "useMap",
 	frameborder: "frameBorder"
 };
@@ -1468,7 +1468,7 @@ jQuery.extend({
 			var special = rspecialurl.test( name );
 
 			// Safari mis-reports the default selected property of an option
-			// Accessing the parent's selectedIndex property fixes it
+			// Accessing the parent's selectedReleaseByDate property fixes it
 			if ( name === "selected" && !jQuery.support.optSelected ) {
 				var parent = elem.parentNode;
 				if ( parent ) {
@@ -1497,10 +1497,10 @@ jQuery.extend({
 					return elem.getAttributeNode( name ).nodeValue;
 				}
 
-				// elem.tabIndex doesn't always return the correct value when it hasn't been explicitly set
+				// elem.tabReleaseByDate doesn't always return the correct value when it hasn't been explicitly set
 				// http://fluidproject.org/blog/2008/01/09/getting-setting-and-removing-tabindex-values-with-javascript/
-				if ( name === "tabIndex" ) {
-					var attributeNode = elem.getAttributeNode( "tabIndex" );
+				if ( name === "tabReleaseByDate" ) {
+					var attributeNode = elem.getAttributeNode( "tabReleaseByDate" );
 
 					return attributeNode && attributeNode.specified ?
 						attributeNode.value :
@@ -3304,7 +3304,7 @@ if ( document.documentElement.compareDocumentPosition ) {
 		}
 		return ret;
 	};
-} else if ( "sourceIndex" in document.documentElement ) {
+} else if ( "sourceReleaseByDate" in document.documentElement ) {
 	sortOrder = function( a, b ) {
 		if ( !a.sourceIndex || !b.sourceIndex ) {
 			if ( a == b ) {

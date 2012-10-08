@@ -36,3 +36,5 @@ C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\StructureMap.xml
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\ResolveAssemblyReference.cache
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\FIfairyTests.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\obj\Debug\FIfairyTests.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyData.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairyTests\FIfairyTests\bin\Debug\FIfairyData.pdb

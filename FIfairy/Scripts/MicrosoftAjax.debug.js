@@ -1689,20 +1689,20 @@ Sys.CollectionChange = function Sys$CollectionChange(action, newItems, newStarti
     /// <summary locid="M:J#Sys.CollectionChange.#ctor" />
     /// <param name="action" type="Sys.NotifyCollectionChangedAction"></param>
     /// <param name="newItems" optional="true" mayBeNull="true"></param>
-    /// <param name="newStartingIndex" type="Number" integer="true" optional="true" mayBeNull="true"></param>
+    /// <param name="newStartingReleaseByDate" type="Number" integer="true" optional="true" mayBeNull="true"></param>
     /// <param name="oldItems" optional="true" mayBeNull="true"></param>
-    /// <param name="oldStartingIndex" type="Number" integer="true" optional="true" mayBeNull="true"></param>
+    /// <param name="oldStartingReleaseByDate" type="Number" integer="true" optional="true" mayBeNull="true"></param>
     /// <field name="action" type="Sys.NotifyCollectionChangedAction" locid="F:J#Sys.CollectionChange.action"></field>
     /// <field name="newItems" type="Array" mayBeNull="true" elementMayBeNull="true" locid="F:J#Sys.CollectionChange.newItems"></field>
-    /// <field name="newStartingIndex" type="Number" integer="true" locid="F:J#Sys.CollectionChange.newStartingIndex"></field>
+    /// <field name="newStartingReleaseByDate" type="Number" integer="true" locid="F:J#Sys.CollectionChange.newStartingReleaseByDate"></field>
     /// <field name="oldItems" type="Array" mayBeNull="true" elementMayBeNull="true" locid="F:J#Sys.CollectionChange.oldItems"></field>
-    /// <field name="oldStartingIndex" type="Number" integer="true" locid="F:J#Sys.CollectionChange.oldStartingIndex"></field>
+    /// <field name="oldStartingReleaseByDate" type="Number" integer="true" locid="F:J#Sys.CollectionChange.oldStartingReleaseByDate"></field>
     var e = Function._validateParams(arguments, [
         {name: "action", type: Sys.NotifyCollectionChangedAction},
         {name: "newItems", mayBeNull: true, optional: true},
-        {name: "newStartingIndex", type: Number, mayBeNull: true, integer: true, optional: true},
+        {name: "newStartingReleaseByDate", type: Number, mayBeNull: true, integer: true, optional: true},
         {name: "oldItems", mayBeNull: true, optional: true},
-        {name: "oldStartingIndex", type: Number, mayBeNull: true, integer: true, optional: true}
+        {name: "oldStartingReleaseByDate", type: Number, mayBeNull: true, integer: true, optional: true}
     ]);
     if (e) throw e;
     this.action = action;

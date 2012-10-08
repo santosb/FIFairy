@@ -5,7 +5,9 @@ namespace FIfairyDomain
 {
     public interface  IReleaseRepository
     {
-        IEnumerable<IReleaseModel> GetReleases();
-        IEnumerable<IReleaseModel> GetReleases(DateTime dateTo);
+        IEnumerable<ReleaseModel> GetReleases();
+        IEnumerable<ReleaseModel> GetReleases(DateTime dateTo);
+        ReleaseDetailsModel GetReleaseDetails(string releaseNumber);
+        void SaveReleaseDetails(ReleaseDetailsModel expectedReleaseDetailsModel);
     }
 }

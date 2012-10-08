@@ -4,25 +4,46 @@ using FIfairyDomain;
 
 namespace FIfairy.Controllers
 {
-    public class ReleaseController: Controller
+    public class ReleaseController : Controller
     {
         private readonly IReleaseRepository _releaseRepository;
 
         public ReleaseController(IReleaseRepository releaseRepository)
         {
-            _releaseRepository = releaseRepository;            
+            _releaseRepository = releaseRepository;
         }
 
         [HttpGet]
         public ViewResult Index()
         {
-            return View("ReleaseView", _releaseRepository.GetReleases());
+            return View("Release", _releaseRepository.GetReleases());
         }
 
         [HttpGet]
-        public ViewResult Indexes(DateTime dateTo)
+        public ViewResult ReleaseByDate(int year, int month, int day)
         {
-            return View("ReleaseView",  _releaseRepository.GetReleases(dateTo));
+            return View("Release", _releaseRepository.GetReleases(new DateTime(year, month, day)));
+        }
+
+        [HttpGet]
+        public ViewResult Create()
+        {
+            return View("CreateRelease");
+        }
+        
+        [HttpPost]
+        public ActionResult Create(ReleaseDetailsModel releaseDetailsModel)
+        {
+            try
+            {
+                _releaseRepository.SaveReleaseDetails(releaseDetailsModel);
+                              
+                return RedirectToAction("Index", "Release");
+            }
+            catch
+            {
+                return View("CreateRelease");
+            }
         }
     }
 }

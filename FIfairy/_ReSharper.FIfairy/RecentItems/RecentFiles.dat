@@ -1,4 +1,56 @@
 ﻿<RecentFiles>
-  <RecentFiles />
-  <RecentEdits />
+  <RecentFiles>
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Scripts/f:jquery-1.4.1-vsdoc.js" caret="0" fromTop="0" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:AccountController.cs" caret="0" fromTop="0" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:HomeController.cs" caret="0" fromTop="0" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/f:WiringDefinition.cs" caret="290" fromTop="10" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Views/d:Release/f:Release.aspx" caret="489" fromTop="11" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:RouteTests.cs" caret="0" fromTop="0" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Views/d:Home/f:Index.aspx" caret="0" fromTop="0" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/f:StructureMapControllerFactory.cs" caret="500" fromTop="9" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Views/d:ReleaseDetails/f:ReleaseDetails.aspx" caret="721" fromTop="16" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Views/d:Release/f:CreateRelease.aspx" caret="735" fromTop="19" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:ReleaseTests.cs" caret="3152" fromTop="38" />
+    <File id="8CE05436-D51A-400F-A0E1-B4E2729345D0/f:ReleaseDetailsModel.cs" caret="64" fromTop="2" />
+    <File id="8CE05436-D51A-400F-A0E1-B4E2729345D0/f:IReleaseRepository.cs" caret="327" fromTop="10" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="1662" fromTop="41" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseController.cs" caret="1018" fromTop="17" />
+    <File id="8CE05436-D51A-400F-A0E1-B4E2729345D0/f:ReleaseModel.cs" caret="0" fromTop="0" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/f:Global.asax.cs" caret="560" fromTop="8" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseDetailsController.cs" caret="377" fromTop="13" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:ReleaseDetailsTests.cs" caret="651" fromTop="1" />
+    <File id="25E5855D-D97A-4022-A813-499ADDD4A53F/f:ReleaseRepository.cs" caret="1277" fromTop="22" />
+  </RecentFiles>
+  <RecentEdits>
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseController.cs" caret="776" fromTop="14" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Views/d:Home/f:Index.aspx" caret="398" fromTop="8" />
+    <File id="8CE05436-D51A-400F-A0E1-B4E2729345D0/f:IReleaseRepository.cs" caret="127" fromTop="6" />
+    <File id="25E5855D-D97A-4022-A813-499ADDD4A53F/f:ReleaseRepository.cs" caret="1106" fromTop="25" />
+    <File id="25E5855D-D97A-4022-A813-499ADDD4A53F/f:ReleaseRepository.cs" caret="277" fromTop="10" />
+    <File id="25E5855D-D97A-4022-A813-499ADDD4A53F/f:ReleaseRepository.cs" caret="993" fromTop="19" />
+    <File id="25E5855D-D97A-4022-A813-499ADDD4A53F/f:ReleaseRepository.cs" caret="1075" fromTop="22" />
+    <File id="25E5855D-D97A-4022-A813-499ADDD4A53F/f:ReleaseRepository.cs" caret="2302" fromTop="30" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseController.cs" caret="860" fromTop="41" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseController.cs" caret="860" fromTop="28" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/f:Global.asax.cs" caret="1287" fromTop="33" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/f:Global.asax.cs" caret="1033" fromTop="28" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/f:Global.asax.cs" caret="756" fromTop="14" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseDetailsController.cs" caret="592" fromTop="20" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="1961" fromTop="36" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="1352" fromTop="23" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="908" fromTop="15" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="300" fromTop="6" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="300" fromTop="12" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseController.cs" caret="860" fromTop="40" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseController.cs" caret="1095" fromTop="35" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseController.cs" caret="1282" fromTop="48" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseController.cs" caret="1002" fromTop="14" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseController.cs" caret="860" fromTop="12" />
+    <File id="5261A12B-DD35-4657-A7E1-AF6261D3C8E9/d:Controllers/f:ReleaseController.cs" caret="852" fromTop="11" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="457" fromTop="15" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="457" fromTop="8" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="1813" fromTop="27" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="1769" fromTop="36" />
+    <File id="FFDFC8F2-B75C-43D3-8DD4-85815CF28F1A/f:CreateReleaseTests.cs" caret="1662" fromTop="26" />
+  </RecentEdits>
 </RecentFiles>

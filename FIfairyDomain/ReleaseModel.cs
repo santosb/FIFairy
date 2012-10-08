@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FIfairyDomain
 {
-    public class ReleaseModel : IReleaseModel
+    public class ReleaseModel 
     {
         private readonly string _teamName;
         private readonly string _releaseNumber;

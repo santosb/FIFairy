@@ -18,3 +18,5 @@ C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\StructureMap.xml
 C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\ResolveAssemblyReference.cache
 C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\FIfairy.dll
 C:\FI fairy\FIfairy\FIfairy\FIfairy\obj\Debug\FIfairy.pdb
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyData.dll
+C:\FI fairy\FIfairy\FIfairy\FIfairy\bin\FIfairyData.pdb

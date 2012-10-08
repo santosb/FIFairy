@@ -5,6 +5,7 @@ using FIfairy.Controllers;
 using FIfairyDomain;
 using Moq;
 using NUnit.Framework;
+using System.Linq;
 
 namespace FIfairyTests
 {
@@ -15,7 +16,7 @@ namespace FIfairyTests
         public void ShouldDisplayReleaseNumbersOfTheLastThreeMonths()
         {
             //given
-            IEnumerable<IReleaseModel> expectedReleaseModel = new List<IReleaseModel>
+            IEnumerable<ReleaseModel> expectedReleaseModel = new List<ReleaseModel>
                                                                   {
                                                                       new ReleaseModel("Enzo", "REL1216", new DateTime(2011,10,20)),
                                                                       new ReleaseModel("Enzo", "REL54164", new DateTime(2011,10,20)),
@@ -29,17 +30,19 @@ namespace FIfairyTests
 
             releaseRepository.Setup(x => x.GetReleases(dateTo)).Returns(expectedReleaseModel);
             var releaseController = new ReleaseController(releaseRepository.Object);
-            ViewResult result = releaseController.Indexes(dateTo);
+            ViewResult result = releaseController.ReleaseByDate(dateTo.Year, dateTo.Month, dateTo.Day);
+            var model = (IEnumerable<ReleaseModel>)result.ViewData.Model;
 
             //then
             Assert.That(result.ViewName, Is.EqualTo("ReleaseView"));
-            Assert.That(result.ViewData.Model, Is.EqualTo(expectedReleaseModel));
+            Assert.That(model, Is.EqualTo(expectedReleaseModel));
+            Assert.That(model.First().TeamName, Is.EqualTo("Enzo"));
         }
 
         [Test]
         public void ShouldDisplayReleases()
         {
-            IEnumerable<IReleaseModel> expectedReleaseModel = new List<IReleaseModel>
+            IEnumerable<ReleaseModel> expectedReleaseModel = new List<ReleaseModel>
                        {
                            new ReleaseModel("Enzo", "REL1216",  new DateTime(2011,10,20)),
                            new ReleaseModel("Enzo", "REL54164", new DateTime(2011,11,20)),
@@ -54,30 +57,14 @@ namespace FIfairyTests
             releaseRepository.Setup(x => x.GetReleases()).Returns(expectedReleaseModel);
             var releaseController = new ReleaseController(releaseRepository.Object);
             ViewResult result = releaseController.Index();
+
+            var model = (IEnumerable<ReleaseModel>)result.ViewData.Model;
+
             Assert.That(result.ViewName, Is.EqualTo("ReleaseView"));
-            Assert.That(result.ViewData.Model, Is.EqualTo(expectedReleaseModel));
+            Assert.That(model, Is.EqualTo(expectedReleaseModel));
+            Assert.That(model.First().TeamName, Is.EqualTo("Enzo"));
         }
 
-        [Test]
-        public void ShouldDisplayTeamName()
-        {
-            //given
 
-            IEnumerable<IReleaseModel> expectedReleaseModel = new List<IReleaseModel>
-                                                                  {
-                                                                      new ReleaseModel("Enzo", "REL1216", new DateTime(2011,10,20)),
-                                                                      new ReleaseModel("Enzo", "REL54164", new DateTime(2011,10,20)),
-                                                                      new ReleaseModel("Colombo", "REL1000", new DateTime(2011,10,20))
-                                                                  };
-
-            //when
-            var releaseRepository = new Mock<IReleaseRepository>();
-            releaseRepository.Setup(x => x.GetReleases()).Returns(expectedReleaseModel);
-            var releaseController = new ReleaseController(releaseRepository.Object);
-            ViewResult viewResult = releaseController.Index();
-
-            //then
-            Assert.That(viewResult.ViewData.Model, Is.EqualTo(expectedReleaseModel));
-        }
     }
 }

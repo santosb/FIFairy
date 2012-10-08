@@ -12,5 +12,6 @@ namespace FIfairyDomain
         void SaveReleaseDetails(Release release);
         Stream GetPrePatEmailFile(string filename);
         void SavePrePatEmailFile(string filename, Stream inputStream);
+        IEnumerable<Release> GetReleasesOfLastThreeMonths();
     }
 }

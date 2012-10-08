@@ -100,6 +100,11 @@ namespace FIfairyData
             File.WriteAllBytes(savedFileName, memoryStream.ToArray());            
         }
 
+        public IEnumerable<Release> GetReleasesOfLastThreeMonths()
+        {
+            return GetReleases().Where(x => x.ReleaseDate > DateTime.Now.AddMonths(-3));
+        }
+
 
         //GetPrePatEmailFile (filename) -> send file Name instead  of release number
         public Stream GetPrePatEmailFile(string filename)

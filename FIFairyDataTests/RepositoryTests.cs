@@ -15,6 +15,7 @@ namespace FIFairyDataTests
     {
         private const string TestPrePatEmail = @"Enzo Pre-PAT release 19122011 ref REL11125.0.00.msg";
         //create tests in releaserep (data) to get and create the file. int test
+
         #region Setup/Teardown
 
         [SetUp]
@@ -32,8 +33,10 @@ namespace FIFairyDataTests
             var releaseRepository = new ReleaseRepository();
             var expectedReleaseDetailsModels = new List<Release>
                                                    {
-                                                        new ReleaseBuilder().WithReleaseNumber("REL01").Build(),
-                                                        new ReleaseBuilder().WithReleaseNumber("REL02").Build()
+                                                       new ReleaseBuilder().WithReleaseNumber("REL01").Build(),
+                                                       new ReleaseBuilder().WithReleaseNumber("REL02").Build(),
+                                                       new ReleaseBuilder().Build(),
+                                                       new ReleaseBuilder().WithReleaseNumber("REL1234").Build()
                                                    };
 
             //when           
@@ -44,7 +47,7 @@ namespace FIFairyDataTests
 
             // then
             IEnumerable<Release> releaseDetailsModels = releaseRepository.GetReleases();
-            Assert.That(releaseDetailsModels, Is.EqualTo(expectedReleaseDetailsModels));
+            Assert.That(releaseDetailsModels, Is.EqualTo(expectedReleaseDetailsModels));            
         }
 
         [Test]
@@ -53,13 +56,14 @@ namespace FIFairyDataTests
             //given
             var releaseRepository = new ReleaseRepository();
 
-            var expectedReleaseDetailsModel = new ReleaseBuilder().Build();
+            //todo: put this inside the builder (for instante on the Build method as default)
+            var expectedReleaseDetailsModel = new ReleaseBuilder().WithReleaseNumber("REL01").Build();
             //when
             releaseRepository.SaveReleaseDetails(expectedReleaseDetailsModel);
 
             //then
             Release release = releaseRepository.GetReleaseDetails("REL01");
-            Assert.That(release, Is.EqualTo(expectedReleaseDetailsModel));            
+            Assert.That(release, Is.EqualTo(expectedReleaseDetailsModel));
         }
 
         [Test]
@@ -67,10 +71,10 @@ namespace FIFairyDataTests
         {
             //given
             var releaseRepository = new ReleaseRepository();
-            Stream expectedFile = File.OpenRead(TestPrePatEmail);            
+            Stream expectedFile = File.OpenRead(TestPrePatEmail);
 
             //when            
-            using(FileStream file = (FileStream)releaseRepository.GetPrePatEmailFile(TestPrePatEmail))
+            using (FileStream file = (FileStream) releaseRepository.GetPrePatEmailFile(TestPrePatEmail))
             {
                 //then
                 Assert.That(file, Is.EqualTo(expectedFile));

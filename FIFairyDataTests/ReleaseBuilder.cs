@@ -7,14 +7,14 @@ namespace FIFairyDataTests
     {
         readonly Release release = new Release()
                                       {
-                                          ReleaseNumber = "REL01",
+                                          ReleaseNumber = "REL00",
                                           TeamName = "enzo",
                                           PrePatEmail = "some email",
-                                          ServiceNowTicketLink = "ticket",
+                                          ServiceNowTicketLink = "www.alink.com",
                                           ReleaseFiInstructions = "instructions",
                                           PrePatEmailFileInfo =
                                               new PrePatEmailFileInfo() {Length = 123, Name = @"fooo.msg"},
-                                          ReleaseDate = DateTime.Today
+                                          ReleaseDate = DateTime.Today,                                          
                                       };
 
         public ReleaseBuilder WithReleaseNumber(string releaseNumber)

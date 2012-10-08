@@ -60,6 +60,10 @@ namespace FIfairy.Controllers
             return prepatfile!=null  && prepatfile.ContentLength > 0;
         }
 
-
+        [HttpGet]
+        public ViewResult ReleasesOfLastThreeMonths()
+        {
+            return View("Release", _releaseRepository.GetReleasesOfLastThreeMonths());
+        }
     }
 }

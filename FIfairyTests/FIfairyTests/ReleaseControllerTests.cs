@@ -58,6 +58,25 @@ namespace FIfairyTests
         }
 
         [Test]
+        public void ShouldDisplayReleasesForTheLastThreeMonths()
+        {            
+            //given
+            IEnumerable<Release> expectedReleases = new List<Release> { new Release("Enzo", "REL1216", DateTime.Today.AddMonths(-2)), };
+
+            //when
+            var releaseRepository = new Mock<IReleaseRepository>();
+            releaseRepository.Setup(x => x.GetReleasesOfLastThreeMonths()).Returns(expectedReleases);
+
+            var releaseController = new ReleaseController(releaseRepository.Object);
+            ViewResult result = releaseController.ReleasesOfLastThreeMonths();
+            var model = (IEnumerable<Release>)result.ViewData.Model;
+
+            //then
+            Assert.That(result.ViewName, Is.EqualTo("Release"));
+            Assert.That(model, Is.EqualTo(expectedReleases));
+        }
+
+        [Test]
         public void ShouldDisplayReleaseDetails()
         {
             //given

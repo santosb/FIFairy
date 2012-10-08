@@ -7,20 +7,14 @@
     <head runat="server">
         <title>Releases Page</title>
     </head>
-    <body>
-        <ul>
-            <% foreach (IReleaseModel releases in Model)
+    <body>        
+            <% foreach (IReleaseModel release in Model)
                { %>
-                <li>Team: <%= releases.TeamName %></li>  
-                <ul>
-                     
-                    <% foreach (string release in releases.Releases)
-                       { %>
-                        <li><%= release %></li>
-                    <% } %>         
-               
-                </ul>    
-            <% } %>
-        </ul>
+                <div>
+                    Team: <%= release.TeamName %> 
+                    RelNumber: <%= release.ReleaseNumber %>
+                    Date:
+                </div>                  
+            <% } %>       
     </body>
 </html>

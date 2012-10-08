@@ -1,10 +1,12 @@
+using System;
 using System.Collections.Generic;
 
 namespace FIfairyDomain
 {
     public interface IReleaseModel
     {
-        List<string> Releases { get; }
-        string TeamName { get; }        
+        string ReleaseNumber { get; }
+        string TeamName { get; }
+        DateTime Date { get; }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace FIfairyDomain
@@ -5,22 +6,31 @@ namespace FIfairyDomain
     public class ReleaseModel : IReleaseModel
     {
         private readonly string _teamName;
-        private readonly List<string> _releases;
+        private readonly string _releaseNumber;
+        private readonly DateTime _dateTime;
 
-        public ReleaseModel(string teamName, List<string> releases)
+        public ReleaseModel(string teamName, string releaseNumber, DateTime dateTime)
         {
             _teamName = teamName;
-            _releases = releases;
+            _releaseNumber = releaseNumber;
+            _dateTime = dateTime;
         }
 
-        public List<string> Releases
+        public DateTime Date
         {
-            get { return _releases; }
+            get { return _dateTime; }
+        }
+
+        public string ReleaseNumber
+        {
+            get { return _releaseNumber; }
         }
 
         public string TeamName
         {
             get { return _teamName; }
         }
+
+      
     }
 }

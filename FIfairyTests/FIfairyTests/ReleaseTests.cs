@@ -17,29 +17,19 @@ namespace FIfairyTests
             //given
             IEnumerable<IReleaseModel> expectedReleaseModel = new List<IReleaseModel>
                                                                   {
-                                                                      new ReleaseModel("Enzo",
-                                                                                       new List<string>
-                                                                                           {
-                                                                                               "REL1216",
-                                                                                               "REL54164",
-                                                                                               "REL123",
-                                                                                               "REL124",
-                                                                                               "REL125"
-                                                                                           }),
-                                                                      new ReleaseModel("Phoenix",
-                                                                                       new List<string> {"REL1210"}),
-                                                                      new ReleaseModel("Colombo",
-                                                                                       new List<string>
-                                                                                           {"REL1000", "REL11122"})
+                                                                      new ReleaseModel("Enzo", "REL1216", new DateTime(2011,10,20)),
+                                                                      new ReleaseModel("Enzo", "REL54164", new DateTime(2011,10,20)),
+                                                                      new ReleaseModel("Colombo", "REL1000", new DateTime(2011,10,20))
                                                                   };
+                                                                      
             //when
             var releaseRepository = new Mock<IReleaseRepository>();
-            DateTime dateFrom = DateTime.Today.AddMonths(-3);
-            DateTime dateTo = DateTime.Today;
+            DateTime dateNow = new DateTime(2012,01,21);
+            DateTime dateTo = dateNow.AddMonths(-3);                        
 
-            releaseRepository.Setup(x => x.GetReleases(dateFrom, dateTo)).Returns(expectedReleaseModel);
+            releaseRepository.Setup(x => x.GetReleases(dateTo)).Returns(expectedReleaseModel);
             var releaseController = new ReleaseController(releaseRepository.Object);
-            ViewResult result = releaseController.Indexes(dateFrom, dateTo);
+            ViewResult result = releaseController.Indexes(dateTo);
 
             //then
             Assert.That(result.ViewName, Is.EqualTo("ReleaseView"));
@@ -50,13 +40,15 @@ namespace FIfairyTests
         public void ShouldDisplayReleases()
         {
             IEnumerable<IReleaseModel> expectedReleaseModel = new List<IReleaseModel>
-                                                                  {
-                                                                      new ReleaseModel("Enzo",
-                                                                                       new List<string>
-                                                                                           {"REL1216", "REL54164"}),
-                                                                      new ReleaseModel("Colombo",
-                                                                                       new List<string> {"REL1000"})
-                                                                  };
+                       {
+                           new ReleaseModel("Enzo", "REL1216",  new DateTime(2011,10,20)),
+                           new ReleaseModel("Enzo", "REL54164", new DateTime(2011,11,20)),
+                           new ReleaseModel("Enzo", "REL123", new DateTime(2011,03,20)),
+                           new ReleaseModel("Enzo", "REL124", new DateTime(2011,02,27)),
+                           new ReleaseModel("Enzo", "REL125", new DateTime(2011,09,26)),
+                           new ReleaseModel("Colombo", "REL1000", new DateTime(2011,12,25)),
+                           new ReleaseModel("Colombo", "REL11122", new DateTime(2011,11,04))
+                       };
 
             var releaseRepository = new Mock<IReleaseRepository>();
             releaseRepository.Setup(x => x.GetReleases()).Returns(expectedReleaseModel);
@@ -73,11 +65,9 @@ namespace FIfairyTests
 
             IEnumerable<IReleaseModel> expectedReleaseModel = new List<IReleaseModel>
                                                                   {
-                                                                      new ReleaseModel("Enzo",
-                                                                                       new List<string>
-                                                                                           {"REL1216", "REL54164"}),
-                                                                      new ReleaseModel("Colombo",
-                                                                                       new List<string> {"REL1000"})
+                                                                      new ReleaseModel("Enzo", "REL1216", new DateTime(2011,10,20)),
+                                                                      new ReleaseModel("Enzo", "REL54164", new DateTime(2011,10,20)),
+                                                                      new ReleaseModel("Colombo", "REL1000", new DateTime(2011,10,20))
                                                                   };
 
             //when

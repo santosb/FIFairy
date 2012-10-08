@@ -20,9 +20,9 @@ namespace FIfairy.Controllers
         }
 
         [HttpGet]
-        public ViewResult Indexes(DateTime dateFrom, DateTime dateTo)
+        public ViewResult Indexes(DateTime dateTo)
         {
-            return View("ReleaseView",  _releaseRepository.GetReleases(dateFrom, dateTo));
+            return View("ReleaseView",  _releaseRepository.GetReleases(dateTo));
         }
     }
 }

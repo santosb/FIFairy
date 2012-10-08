@@ -7,5 +7,5 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: ViewData["Message"] %></h2>
     <%=Html.ActionLink("Get All Releases", "Index", "Release") %>
-    <%=Html.ActionLink("Get Last three month releases", "Indexes", "Release", new { dateFrom = DateTime.Now.AddMonths(-3), dateTo = DateTime.Now }, null) %>    
+    <%=Html.ActionLink("Get Last three month releases", "Indexes", "Release", new { dateTo= DateTime.Now.AddMonths(-3) }, null) %>    
 </asp:Content>
